@@ -1,5 +1,5 @@
 {% set name = "cds-crtools" %}
-{% set version = "3.0.2" %}
+{% set version = "3.0.3" %}
 
 package:
   name: {{ name|lower }}-split
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://git.ligo.org/cds/dtt/-/archive/release{{ version }}/dtt-release{{ version }}.tar.gz
-  sha256: 2e8bfba90497938fc6012cdb21c1a8b2b1db143e3f3986524c015023cf22ce61
+  sha256: 26115b399a05e213cfd31c8b20ffb43f32202756c25cf66d862343f2748b0094
   patches:
     # use C++-17 standard
     - cxx_standard-17.patch
@@ -654,7 +654,7 @@ outputs:
       - bin/diagd
     test:
       commands:
-       - test -x ${PREFIX}/bin/diagd  # [unix]
+        - test -x ${PREFIX}/bin/diagd # [unix]
     about:
       home: https://git.ligo.org/cds/dtt
       dev_url: https://git.ligo.org/cds/dtt.git
@@ -692,7 +692,7 @@ outputs:
       - bin/diaggui
     test:
       commands:
-       - diaggui -h
+        - diaggui -h
     about:
       home: https://git.ligo.org/cds/dtt
       dev_url: https://git.ligo.org/cds/dtt.git
