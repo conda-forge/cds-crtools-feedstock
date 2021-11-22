@@ -424,13 +424,13 @@ outputs:
         - cmake
         - pkg-config
       host:
-        - python
+        - python >=3.6
         - root_base
       run:
         - {{ pin_subpackage('crtools-root-libraries', exact=True) }}
         - gds-root-extensions-crtools
         - numpy
-        - python
+        - python >=3.6
         - root_base
         - scipy
         - {{ pin_subpackage('crtools-root-libraries', exact=True) }}
@@ -461,14 +461,14 @@ outputs:
         - cmake
         - pkg-config
       host:
-        - python
+        - python >=3.6
         - root_base
       run:
         - {{ pin_subpackage('libawg', exact=True) }}
         - {{ pin_subpackage('libtestpoint', exact=True) }}
         - {{ pin_subpackage('libsistr', exact=True) }}
         - numpy
-        - python
+        - python >=3.6
         - root_base
         - scipy
     test:
@@ -916,11 +916,13 @@ outputs:
   # -- metapackage ----------
 
   - name: cds-crtools
+    build:
+      noarch: python
     requirements:
       host:
-        - python
+        - python >=3.6
       run:
-        - python
+        - python >=3.6
         # all of the outputs
         - {{ pin_subpackage('chndump', exact=True) }}
         - {{ pin_subpackage('dmtviewer', exact=True) }}
