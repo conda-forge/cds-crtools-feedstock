@@ -8,6 +8,7 @@ package:
 source:
   url: https://git.ligo.org/cds/dtt/-/archive/release{{ version }}/dtt-release{{ version }}.tar.gz
   sha256: 2e8bfba90497938fc6012cdb21c1a8b2b1db143e3f3986524c015023cf22ce61
+  # path: /home/erik.vonreis/projects/dtt
   patches:
     # use C++-17 standard
     - cxx_standard-17.patch
@@ -52,7 +53,7 @@ outputs:
       host:
         - gds-base
         - {{ pin_subpackage('libtestpoint', exact=True) }}
-        - openssl
+        - openssl =1.1.1
       run:
         - gds-base
         - {{ pin_subpackage('libtestpoint', exact=True) }}
@@ -88,7 +89,7 @@ outputs:
         - gds-base
         - {{ pin_subpackage('libfantom', exact=True) }}
         - {{ pin_subpackage('libtestpoint', exact=True) }}
-        - openssl
+        - openssl =1.1.1
       run:
         - gds-base
         - {{ pin_subpackage('libfantom', exact=True) }}
@@ -135,7 +136,7 @@ outputs:
         - {{ pin_subpackage('libdfm', exact=True) }}
         - {{ pin_subpackage('libfantom', exact=True) }}
         - {{ pin_subpackage('libtestpoint', exact=True) }}
-        - openssl
+        - openssl =1.1.1
         - readline
       run:
         - expat
@@ -174,7 +175,7 @@ outputs:
       host:
         - gds-base
         - gds-lsmp
-        - openssl
+        - openssl =1.1.1
         - readline
       run:
         - gds-base
@@ -208,7 +209,7 @@ outputs:
         - {{ compiler('cxx') }}
       host:
         - gds-base
-        - openssl
+        - openssl =1.1.1
       run:
         - gds-base
     files:
@@ -240,7 +241,7 @@ outputs:
       host:
         - gds-base
         - {{ pin_subpackage('libfilterfile', exact=True) }}
-        - openssl
+        - openssl =1.1.1
       run:
         - gds-base
         - {{ pin_subpackage('libfilterfile', exact=True) }}
@@ -274,7 +275,7 @@ outputs:
         - gds-base
         - {{ pin_subpackage('libawg', exact=True) }}
         - {{ pin_subpackage('libtestpoint', exact=True) }}
-        - openssl
+        - openssl =1.1.1
       run:
         - gds-base
         - {{ pin_subpackage('libawg', exact=True) }}
@@ -306,7 +307,7 @@ outputs:
         - {{ compiler('cxx') }}
       host:
         - gds-base
-        - openssl
+        - openssl =1.1.1
       run:
         - gds-base
     files:
@@ -589,7 +590,7 @@ outputs:
         - {{ pin_subpackage('libdtt', exact=True) }}
         - {{ pin_subpackage('libsistr', exact=True) }}
         - {{ pin_subpackage('libtestpoint', exact=True) }}
-        - openssl
+        - openssl =1.1.1
       run:
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - gds-base
