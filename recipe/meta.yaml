@@ -52,6 +52,7 @@ outputs:
         - gds-base
         - {{ pin_subpackage('libtestpoint', exact=True) }}
         - openssl
+        - make # [unix]
       run:
         - gds-base
         - {{ pin_subpackage('libtestpoint', exact=True) }}
@@ -88,6 +89,7 @@ outputs:
         - {{ pin_subpackage('libfantom', exact=True) }}
         - {{ pin_subpackage('libtestpoint', exact=True) }}
         - openssl
+        - make # [unix]
       run:
         - gds-base
         - {{ pin_subpackage('libfantom', exact=True) }}
@@ -136,6 +138,7 @@ outputs:
         - {{ pin_subpackage('libtestpoint', exact=True) }}
         - openssl
         - readline
+        - make # [unix]
       run:
         - expat
         - gds-base
@@ -175,6 +178,7 @@ outputs:
         - gds-lsmp
         - openssl
         - readline
+        - make # [unix]
       run:
         - gds-base
         - gds-lsmp
@@ -208,6 +212,7 @@ outputs:
       host:
         - gds-base
         - openssl
+        - make # [unix]
       run:
         - gds-base
     files:
@@ -240,6 +245,7 @@ outputs:
         - gds-base
         - {{ pin_subpackage('libfilterfile', exact=True) }}
         - openssl
+        - make # [unix]
       run:
         - gds-base
         - {{ pin_subpackage('libfilterfile', exact=True) }}
@@ -274,6 +280,7 @@ outputs:
         - {{ pin_subpackage('libawg', exact=True) }}
         - {{ pin_subpackage('libtestpoint', exact=True) }}
         - openssl
+        - make # [unix]
       run:
         - gds-base
         - {{ pin_subpackage('libawg', exact=True) }}
@@ -306,6 +313,7 @@ outputs:
       host:
         - gds-base
         - openssl
+        - make # [unix]
       run:
         - gds-base
     files:
@@ -338,6 +346,7 @@ outputs:
         - {{ pin_subpackage('libdfm', exact=True) }}
         - {{ pin_subpackage('libfantom', exact=True) }}
         - root_base
+        - make # [unix]
       run:
         - gds-base
         - gds-base-crtools
@@ -385,6 +394,7 @@ outputs:
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - {{ pin_subpackage('libfilterfile', exact=True) }}
         - root_base
+        - make # [unix]
       run:
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - {{ pin_subpackage('libfilterfile', exact=True) }}
@@ -425,6 +435,7 @@ outputs:
       host:
         - python >=3.6
         - root_base
+        - make # [unix]
       run:
         - {{ pin_subpackage('crtools-root-libraries', exact=True) }}
         - gds-root-extensions-crtools
@@ -462,6 +473,7 @@ outputs:
       host:
         - python >=3.6
         - root_base
+        - make # [unix]
       run:
         - {{ pin_subpackage('libawg', exact=True) }}
         - {{ pin_subpackage('libtestpoint', exact=True) }}
@@ -495,6 +507,7 @@ outputs:
         - {{ compiler('c') }}
       host:
         - {{ pin_subpackage('libdtt', exact=True) }}
+        - make # [unix]
       run:
         - {{ pin_subpackage('libdtt', exact=True) }}
     files:
@@ -514,6 +527,7 @@ outputs:
         - gds-gui-crtools
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - root_base
+        - make # [unix]
       run:
         - gds-base
         - gds-base-crtools
@@ -548,6 +562,7 @@ outputs:
         - {{ pin_subpackage('libawg', exact=True) }}
         - {{ pin_subpackage('libtestpoint', exact=True) }}
         - root_base
+        - make # [unix]
       run:
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - gds-base
@@ -589,6 +604,7 @@ outputs:
         - {{ pin_subpackage('libsistr', exact=True) }}
         - {{ pin_subpackage('libtestpoint', exact=True) }}
         - openssl
+        - make # [unix]
       run:
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - gds-base
@@ -621,6 +637,7 @@ outputs:
         - {{ compiler('cxx') }}
       host:
         - {{ pin_subpackage('libdtt', exact=True) }}
+        - make # [unix]
       run:
         - {{ pin_subpackage('libdtt', exact=True) }}
     files:
@@ -647,6 +664,7 @@ outputs:
         - {{ compiler('cxx') }}
       host:
         - {{ pin_subpackage('libdtt', exact=True) }}
+        - make # [unix]
       run:
         - {{ pin_subpackage('libdtt', exact=True) }}
     files:
@@ -679,6 +697,7 @@ outputs:
         - {{ pin_subpackage('libdtt', exact=True) }}
         - {{ pin_subpackage('libfantom', exact=True) }}
         - root_base
+        - make # [unix]
       run:
         - gds-base
         - gds-gui-crtools
@@ -736,6 +755,7 @@ outputs:
         - {{ pin_subpackage('libawg', exact=True) }}
         - {{ pin_subpackage('libdtt', exact=True) }}
         - {{ pin_subpackage('libtestpoint', exact=True) }}
+        - make # [unix]
       run:
         - gds-base
         - {{ pin_subpackage('libawg', exact=True) }}
@@ -765,6 +785,7 @@ outputs:
         - {{ compiler('c') }}
       host:
         - {{ pin_subpackage('libtestpoint', exact=True) }}
+        - make # [unix]
       run:
         - {{ pin_subpackage('libtestpoint', exact=True) }}
     files:
@@ -792,6 +813,7 @@ outputs:
         - gds-base
         - {{ pin_subpackage('libdtt', exact=True) }}
         - {{ pin_subpackage('libtestpoint', exact=True) }}
+        - make # [unix]
       run:
         - gds-base
         - {{ pin_subpackage('libdtt', exact=True) }}
@@ -823,6 +845,7 @@ outputs:
         - {{ compiler('c') }}
       host:
         - {{ pin_subpackage('libfantom', exact=True) }}
+        - make # [unix]
       run:
         - {{ pin_subpackage('libfantom', exact=True) }}
     files:
@@ -852,6 +875,7 @@ outputs:
         - {{ pin_subpackage('libfilterfile', exact=True) }}
         - {{ pin_subpackage('libfilterwiz', exact=True) }}
         - root_base
+        - make # [unix]
       run:
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - gds-base
@@ -887,6 +911,7 @@ outputs:
         - gds-base
         - {{ pin_subpackage('libdfm', exact=True) }}
         - root_base
+        - make # [unix]
       run:
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - gds-base
@@ -920,6 +945,7 @@ outputs:
     requirements:
       host:
         - python >=3.6
+        - make # [unix]
       run:
         - python >=3.6
         # all of the outputs
