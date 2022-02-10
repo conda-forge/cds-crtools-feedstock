@@ -36,6 +36,7 @@ requirements:
     - gds-root-extensions-crtools
     - readline
     - root_base
+    - nds2-client
 
 outputs:
   # -- C libraries ----------
