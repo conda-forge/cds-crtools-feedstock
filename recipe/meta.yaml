@@ -34,9 +34,10 @@ requirements:
     - gds-base-gdstrig
     - gds-lsmp
     - gds-root-extensions-crtools
+    - nds2-client
     - readline
     - root_base
-    - nds2-client
+    
 
 outputs:
   # -- C libraries ----------
@@ -46,13 +47,13 @@ outputs:
       ignore_run_exports:
         - openssl
     requirements:
-      build:
-        - make  # [unix]
+      build:        
         - {{ compiler('cxx') }}
-      host:
-        - nds2-client
+        - make  # [unix]
+      host:        
         - gds-base
         - {{ pin_subpackage('libtestpoint', exact=True) }}
+        - nds2-client
         - openssl
       run:
         - gds-base
@@ -83,14 +84,14 @@ outputs:
       ignore_run_exports:
         - openssl
     requirements:
-      build:
-        - make  # [unix]
+      build:        
         - {{ compiler('cxx') }}
-      host:
-        - nds2-client
+        - make  # [unix]
+      host:        
         - gds-base
         - {{ pin_subpackage('libfantom', exact=True) }}
         - {{ pin_subpackage('libtestpoint', exact=True) }}
+        - nds2-client
         - openssl
       run:
         - gds-base
@@ -128,9 +129,9 @@ outputs:
       ignore_run_exports:
         - openssl
     requirements:
-      build:
-        - make  # [unix]
+      build:        
         - {{ compiler('cxx') }}
+        - make  # [unix]
       host:
         - expat
         - gds-base
@@ -139,9 +140,9 @@ outputs:
         - {{ pin_subpackage('libdfm', exact=True) }}
         - {{ pin_subpackage('libfantom', exact=True) }}
         - {{ pin_subpackage('libtestpoint', exact=True) }}
-        - openssl
-        - readline
         - nds2-client
+        - openssl
+        - readline        
       run:
         - expat
         - gds-base
@@ -150,7 +151,9 @@ outputs:
         - {{ pin_subpackage('libdfm', exact=True) }}
         - {{ pin_subpackage('libfantom', exact=True) }}
         - {{ pin_subpackage('libtestpoint', exact=True) }}
+        - nds2-client
         - readline
+        
     files:
       - lib/libdtt{{ SHLIB_EXT }}*
     test:
@@ -174,13 +177,13 @@ outputs:
       ignore_run_exports:
         - openssl
     requirements:
-      build:
-        - make  # [unix]
+      build:        
         - {{ compiler('cxx') }}
-      host:
-        - nds2-client
+        - make  # [unix]
+      host:        
         - gds-base
         - gds-lsmp
+        - nds2-client
         - openssl
         - readline
       run:
@@ -211,12 +214,12 @@ outputs:
       ignore_run_exports:
         - openssl
     requirements:
-      build:
-        - make  # [unix]
+      build:        
         - {{ compiler('cxx') }}
-      host:
-        - nds2-client
+        - make  # [unix]
+      host:        
         - gds-base
+        - nds2-client
         - openssl
       run:
         - gds-base
@@ -244,13 +247,13 @@ outputs:
       ignore_run_exports:
         - openssl
     requirements:
-      build:
-        - make  # [unix]
+      build:        
         - {{ compiler('cxx') }}
-      host:
-        - nds2-client
+        - make  # [unix]
+      host:        
         - gds-base
         - {{ pin_subpackage('libfilterfile', exact=True) }}
+        - nds2-client
         - openssl
       run:
         - gds-base
@@ -279,14 +282,14 @@ outputs:
       ignore_run_exports:
         - openssl
     requirements:
-      build:
-        - make  # [unix]
+      build:        
         - {{ compiler('c') }}
-      host:
-        - nds2-client
+        - make  # [unix]
+      host:        
         - gds-base
         - {{ pin_subpackage('libawg', exact=True) }}
         - {{ pin_subpackage('libtestpoint', exact=True) }}
+        - nds2-client
         - openssl
       run:
         - gds-base
@@ -316,11 +319,11 @@ outputs:
         - openssl
     requirements:
       build:
-        - make  # [unix]
         - {{ compiler('cxx') }}
-      host:
-        - nds2-client
+        - make  # [unix]
+      host:        
         - gds-base
+        - nds2-client
         - openssl
       run:
         - gds-base
@@ -347,13 +350,14 @@ outputs:
     requirements:
       build:
         - {{ compiler('cxx') }}
-      host:
-        - nds2-client
+        - make  # [unix]
+      host:        
         - gds-base
         - gds-base-crtools
         - gds-gui-crtools
         - {{ pin_subpackage('libdfm', exact=True) }}
         - {{ pin_subpackage('libfantom', exact=True) }}
+        - nds2-client
         - root_base
       run:
         - gds-base
@@ -395,14 +399,14 @@ outputs:
 
   - name: crtools-root-libraries
     requirements:
-      build:
-        - make  # [unix]
+      build:        
         - {{ compiler('cxx') }}
-      host:
-        - nds2-client
+        - make  # [unix]
+      host:        
         - gds-base
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - {{ pin_subpackage('libfilterfile', exact=True) }}
+        - nds2-client
         - root_base
       run:
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
@@ -438,9 +442,9 @@ outputs:
     build:
       noarch: python
     requirements:
-      build:
-        - make  # [unix]
+      build:        
         - cmake
+        - make  # [unix]
         - pkg-config
       host:
         - nds2-client
@@ -452,8 +456,7 @@ outputs:
         - numpy
         - python >=3.6
         - root_base
-        - scipy
-        - {{ pin_subpackage('crtools-root-libraries', exact=True) }}
+        - scipy        
     test:
       source_files:
         - src/python/foton/
@@ -477,9 +480,9 @@ outputs:
     build:
       noarch: python
     requirements:
-      build:
-        - make  # [unix]
+      build:        
         - cmake
+        - make  # [unix]
         - pkg-config
       host:
         - nds2-client
@@ -514,12 +517,12 @@ outputs:
 
   - name: chndump
     requirements:
-      build:
-        - make  # [unix]
+      build:        
         - {{ compiler('c') }}
-      host:
-        - nds2-client
+        - make  # [unix]
+      host:        
         - {{ pin_subpackage('libdtt', exact=True) }}
+        - nds2-client
       run:
         - {{ pin_subpackage('libdtt', exact=True) }}
     files:
@@ -531,21 +534,21 @@ outputs:
 
   - name: dmtviewer
     requirements:
-      build:
-        - make  # [unix]
+      build:        
         - {{ compiler('cxx') }}
-      host:
-        - nds2-client
+        - make  # [unix]
+      host:        
+        - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - gds-base
         - gds-base-crtools
-        - gds-gui-crtools
-        - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
+        - gds-gui-crtools        
+        - nds2-client
         - root_base
       run:
+        - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - gds-base
         - gds-base-crtools
-        - gds-gui-crtools
-        - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
+        - gds-gui-crtools        
         - root_base
     files:
       - bin/dmtviewer
@@ -566,16 +569,17 @@ outputs:
 
   - name: dtt-awggui
     requirements:
-      build:
-        - make  # [unix]
+      build:        
         - {{ compiler('cxx') }}
+        - make  # [unix]
       host:
-        - nds2-client
+        
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - gds-base
         - gds-gui-crtools
         - {{ pin_subpackage('libawg', exact=True) }}
         - {{ pin_subpackage('libtestpoint', exact=True) }}
+        - nds2-client
         - root_base
       run:
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
@@ -608,17 +612,17 @@ outputs:
       ignore_run_exports:
         - openssl
     requirements:
-      build:
-        - make  # [unix]
+      build:        
         - {{ compiler('c') }}
-      host:
-        - nds2-client
+        - make  # [unix]
+      host:        
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - gds-base
         - {{ pin_subpackage('libawg', exact=True) }}
         - {{ pin_subpackage('libdtt', exact=True) }}
         - {{ pin_subpackage('libsistr', exact=True) }}
         - {{ pin_subpackage('libtestpoint', exact=True) }}
+        - nds2-client
         - openssl
       run:
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
@@ -648,14 +652,15 @@ outputs:
 
   - name: dtt-diag
     requirements:
-      build:
-        - make  # [unix]
+      build:        
         - {{ compiler('cxx') }}
+        - make  # [unix]
       host:
         - {{ pin_subpackage('libdtt', exact=True) }}
         - nds2-client
       run:
         - {{ pin_subpackage('libdtt', exact=True) }}
+        - nds2-client
     files:
       - bin/diag
     test:
@@ -676,9 +681,9 @@ outputs:
 
   - name: dtt-diagd
     requirements:
-      build:
-        - make  # [unix]
+      build:        
         - {{ compiler('cxx') }}
+        - make  # [unix]
       host:
         - {{ pin_subpackage('libdtt', exact=True) }}
         - nds2-client
@@ -704,9 +709,9 @@ outputs:
 
   - name: dtt-diaggui
     requirements:
-      build:
-        - make  # [unix]
+      build:        
         - {{ compiler('cxx') }}
+        - make  # [unix]
       host:
         - gds-base
         - gds-gui-crtools
@@ -714,8 +719,8 @@ outputs:
         - {{ pin_subpackage('libdfm', exact=True) }}
         - {{ pin_subpackage('libdtt', exact=True) }}
         - {{ pin_subpackage('libfantom', exact=True) }}
-        - root_base
         - nds2-client
+        - root_base        
       run:
         - gds-base
         - gds-gui-crtools
@@ -724,6 +729,7 @@ outputs:
         - {{ pin_subpackage('libdtt', exact=True) }}
         - {{ pin_subpackage('libfantom', exact=True) }}
         - root_base
+        - nds2-client
     files:
       - bin/diaggui
     test:
@@ -745,9 +751,9 @@ outputs:
 
   - name: dtt-monitors
     requirements:
-      build:
-        - make  # [unix]
+      build:        
         - {{ compiler('cxx') }}
+        - make  # [unix]
     files:
       - bin/InspiralRange
     test:
@@ -767,15 +773,15 @@ outputs:
 
   - name: dtt-multiawgstream
     requirements:
-      build:
-        - make  # [unix]
+      build:        
         - {{ compiler('c') }}
-      host:
-        - nds2-client
+        - make  # [unix]
+      host:        
         - gds-base
         - {{ pin_subpackage('libawg', exact=True) }}
         - {{ pin_subpackage('libdtt', exact=True) }}
         - {{ pin_subpackage('libtestpoint', exact=True) }}
+        - nds2-client
       run:
         - gds-base
         - {{ pin_subpackage('libawg', exact=True) }}
@@ -801,12 +807,12 @@ outputs:
 
   - name: dtt-tpcmd
     requirements:
-      build:
-        - make  # [unix]
+      build:        
         - {{ compiler('c') }}
-      host:
-        - nds2-client
+        - make  # [unix]
+      host:        
         - {{ pin_subpackage('libtestpoint', exact=True) }}
+        - nds2-client
       run:
         - {{ pin_subpackage('libtestpoint', exact=True) }}
     files:
@@ -828,14 +834,14 @@ outputs:
 
   - name: dtt-xml-tools
     requirements:
-      build:
-        - make  # [unix]
+      build:        
         - {{ compiler('cxx') }}
-      host:
-        - nds2-client
+        - make  # [unix]
+      host:        
         - gds-base
         - {{ pin_subpackage('libdtt', exact=True) }}
         - {{ pin_subpackage('libtestpoint', exact=True) }}
+        - nds2-client
       run:
         - gds-base
         - {{ pin_subpackage('libdtt', exact=True) }}
@@ -863,12 +869,12 @@ outputs:
 
   - name: fantom
     requirements:
-      build:
-        - make  # [unix]
+      build:        
         - {{ compiler('c') }}
-      host:
-        - nds2-client
+        - make  # [unix]
+      host:        
         - {{ pin_subpackage('libfantom', exact=True) }}
+        - nds2-client
       run:
         - {{ pin_subpackage('libfantom', exact=True) }}
     files:
@@ -890,15 +896,15 @@ outputs:
 
   - name: foton
     requirements:
-      build:
-        - make  # [unix]
+      build:        
         - {{ compiler('cxx') }}
-      host:
-        - nds2-client
+        - make  # [unix]
+      host:        
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - gds-base
         - {{ pin_subpackage('libfilterfile', exact=True) }}
         - {{ pin_subpackage('libfilterwiz', exact=True) }}
+        - nds2-client
         - root_base
       run:
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
@@ -928,14 +934,14 @@ outputs:
 
   - name: lidax
     requirements:
-      build:
-        - make  # [unix]
+      build:        
         - {{ compiler('cxx') }}
-      host:
-        - nds2-client
+        - make  # [unix]
+      host:        
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - gds-base
         - {{ pin_subpackage('libdfm', exact=True) }}
+        - nds2-client
         - root_base
       run:
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
@@ -972,7 +978,8 @@ outputs:
         - nds2-client
         - python >=3.6
       run:
-        - python >=3.6
+        - nds2-client
+        - python >=3.6    
         # all of the outputs
         - {{ pin_subpackage('chndump', exact=True) }}
         - {{ pin_subpackage('dmtviewer', exact=True) }}
