@@ -1,5 +1,5 @@
 {% set name = "cds-crtools" %}
-{% set version = "3.1.0" %}
+{% set version = "3.1.2" %}
 
 package:
   name: {{ name|lower }}-split
@@ -7,13 +7,13 @@ package:
 
 source:
   url: https://git.ligo.org/cds/dtt/-/archive/{{ version }}/{{ version }}.tar.gz
-  sha256: a9d329e367925740916f43f187bd79c43ea2e9a40b2f29b7d527a687c1cd9cc2
+  sha256: cd3979dce54a3673117a7eb18fe1bfb4dfc0332454a9e037fe692abc025de5d0
   patches:
     # patch rpcgen arguments to find cpp
     - rpcgen-cpp-path.patch
 
 build:
-  number: 2
+  number: 0
   skip: true  # [not linux]
 
 requirements:
@@ -712,7 +712,7 @@ outputs:
       - bin/diagd
     test:
       commands:
-       - test -x ${PREFIX}/bin/diagd  # [unix]
+        - test -x ${PREFIX}/bin/diagd # [unix]
     about:
       home: https://git.ligo.org/cds/dtt
       dev_url: https://git.ligo.org/cds/dtt.git
@@ -754,7 +754,7 @@ outputs:
       - bin/diaggui
     test:
       commands:
-       - diaggui -h
+        - diaggui -h
     about:
       home: https://git.ligo.org/cds/dtt
       dev_url: https://git.ligo.org/cds/dtt.git
