@@ -708,7 +708,7 @@ outputs:
       - bin/diagd
     test:
       commands:
-        - test -x ${PREFIX}/bin/diagd # [unix]
+        - test -x ${PREFIX}/bin/diagd  # [unix]
     about:
       home: https://git.ligo.org/cds/dtt
       dev_url: https://git.ligo.org/cds/dtt.git
