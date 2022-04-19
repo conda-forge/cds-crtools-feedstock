@@ -13,7 +13,7 @@ source:
     - rpcgen-cpp-path.patch
 
 build:
-  number: 0
+  number: 1
   skip: true  # [not linux]
 
 requirements:
@@ -450,8 +450,6 @@ outputs:
 
   - name: python-foton
     script: build-python-foton.sh
-    build:
-      noarch: python
     requirements:
       build:
         - cmake
@@ -489,8 +487,6 @@ outputs:
 
   - name: python-awg
     script: build-python-awg.sh
-    build:
-      noarch: python
     requirements:
       build:
         - cmake
@@ -712,7 +708,7 @@ outputs:
       - bin/diagd
     test:
       commands:
-        - test -x ${PREFIX}/bin/diagd # [unix]
+        - test -x ${PREFIX}/bin/diagd  # [unix]
     about:
       home: https://git.ligo.org/cds/dtt
       dev_url: https://git.ligo.org/cds/dtt.git
@@ -998,8 +994,6 @@ outputs:
   # -- metapackage ----------
 
   - name: cds-crtools
-    build:
-      noarch: python
     requirements:
       host:
         - nds2-client
