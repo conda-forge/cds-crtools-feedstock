@@ -13,7 +13,7 @@ source:
     - rpcgen-cpp-path.patch
 
 build:
-  number: 1
+  number: 2
   skip: true  # [not linux]
 
 requirements:
@@ -458,13 +458,13 @@ outputs:
         - sysroot_linux-64 2.17  # [linux64]
       host:
         - nds2-client
-        - python >=3.6
+        - python
         - root_base
       run:
         - {{ pin_subpackage('crtools-root-libraries', exact=True) }}
         - gds-root-extensions-crtools
         - numpy
-        - python >=3.6
+        - python
         - root_base
         - scipy
     test:
@@ -495,14 +495,14 @@ outputs:
         - sysroot_linux-64 2.17  # [linux64]
       host:
         - nds2-client
-        - python >=3.6
+        - python
         - root_base
       run:
         - {{ pin_subpackage('libawg', exact=True) }}
         - {{ pin_subpackage('libtestpoint', exact=True) }}
         - {{ pin_subpackage('libsistr', exact=True) }}
         - numpy
-        - python >=3.6
+        - python
         - root_base
         - scipy
     test:
@@ -997,10 +997,10 @@ outputs:
     requirements:
       host:
         - nds2-client
-        - python >=3.6
+        - python
       run:
         - nds2-client
-        - python >=3.6
+        - python
         # all of the outputs
         - {{ pin_subpackage('chndump', exact=True) }}
         - {{ pin_subpackage('dmtviewer', exact=True) }}
