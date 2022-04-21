@@ -13,7 +13,7 @@ source:
     - rpcgen-cpp-path.patch
 
 build:
-  number: 2
+  number: 3
   skip: true  # [not linux]
 
 requirements:
@@ -998,9 +998,11 @@ outputs:
       host:
         - nds2-client
         - python
+        - root_base
       run:
         - nds2-client
         - python
+        - root_base
         # all of the outputs
         - {{ pin_subpackage('chndump', exact=True) }}
         - {{ pin_subpackage('dmtviewer', exact=True) }}
