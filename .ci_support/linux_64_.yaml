@@ -36,7 +36,7 @@ python:
 readline:
 - '8'
 root_base:
-- 6.26.4
+- 6.26.6
 target_platform:
 - linux-64
 zip_keys:
