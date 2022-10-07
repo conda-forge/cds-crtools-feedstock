@@ -4,3 +4,7 @@ os_version:
 github:
   branch_name: main
   tooling_branch_name: main
+provider:
+  linux_aarch64: default
+  linux_ppc64le: default
+test_on_native_only: true
