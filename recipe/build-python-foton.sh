@@ -14,6 +14,7 @@ BUILD_DIR="src/python/foton"
 cmake \
 	${SRC_DIR} \
 	-DCMAKE_BUILD_TYPE:STRING=Release \
+	-DCMAKE_CROSSCOMPILING_EMULATOR:STRING="${CMAKE_CROSSCOMPILING_EMULATOR}" \
 	-DCMAKE_INSTALL_PREFIX:PATH="${PREFIX}" \
 	-DENABLE_PYTHON${PY_VER%%.*}:BOOL=yes \
 	-DGDS_INCLUDE_DIR=${PREFIX}/include/gds \
@@ -24,7 +25,7 @@ cmake \
 cmake --build "${BUILD_DIR}" --parallel ${CPU_COUNT} --verbose
 
 # test
-if [[ $build_platform == $target_platform || $target_platform == linux-* ]]; then
+if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" != "1" || "${CROSSCOMPILING_EMULATOR}" != "" ]]; then
 	ctest --test-dir "${BUILD_DIR}" --parallel ${CPU_COUNT} --verbose
 fi
 

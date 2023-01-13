@@ -12,6 +12,8 @@ ln -s ${CPP} ${BUILD_PREFIX}/bin/cpp
 cmake \
 	${SRC_DIR} \
 	${CMAKE_ARGS} \
+	-DCMAKE_BUILD_TYPE:STRING=Release \
+	-DCMAKE_CROSSCOMPILING_EMULATOR:STRING="${CMAKE_CROSSCOMPILING_EMULATOR}" \
 	-DCMAKE_INSTALL_PREFIX:PATH="${PREFIX}" \
 	-DENABLE_PYTHON2:BOOL=FALSE \
 	-DENABLE_PYTHON3:BOOL=FALSE \
@@ -22,7 +24,7 @@ cmake \
 cmake --build . --parallel ${CPU_COUNT} --verbose
 
 # test
-if [[ $build_platform == $target_platform || $target_platform == linux-* ]]; then
+if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" != "1" || "${CROSSCOMPILING_EMULATOR}" != "" ]]; then
 	ctest --parallel ${CPU_COUNT} --verbose
 fi
 
