@@ -14,15 +14,15 @@ source:
 
 build:
   number: 11
-  skip: true  # [not linux]
+  skip: true  # [not linux and not osx]
 
 requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - cmake
-    - make  # [unix]
-    - pkg-config  # [unix]
+    - make  # [not win]
+    - pkg-config  # [not win]
     - python >=3
     - sysroot_linux-64 2.17  # [linux64]
   host:
@@ -44,6 +44,7 @@ outputs:
   # -- C libraries ----------
 
   - name: libawg
+    skip: true  # [osx]
     requirements:
       build:
         - {{ compiler('cxx') }}
@@ -78,6 +79,7 @@ outputs:
         on the LIGO real-time data acquisition system.
 
   - name: libdfm
+    skip: true  # [osx]
     requirements:
       build:
         - {{ compiler('cxx') }}
@@ -120,6 +122,7 @@ outputs:
         DMT is part of the LIGO real-time data acquisition system
 
   - name: libdtt
+    skip: true  # [osx]
     requirements:
       build:
         - {{ compiler('cxx') }}
@@ -165,6 +168,7 @@ outputs:
         the LIGO real-time data acquisition system.
 
   - name: libfantom
+    skip: true  # [osx]
     requirements:
       build:
         - {{ compiler('cxx') }}
@@ -232,7 +236,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('cxx') }}
-        - make  # [unix]
+        - make  # [not win]
         - sysroot_linux-64 2.17  # [linux64]
       host:
         - gds-base
@@ -261,6 +265,7 @@ outputs:
         `foton`-style filter design windows for one-off filters.
 
   - name: libsistr
+    skip: true  # [osx]
     requirements:
       build:
         - {{ compiler('c') }}
@@ -294,6 +299,7 @@ outputs:
         `libsistr` is a library used for streaming custom excitations.
 
   - name: libtestpoint
+    skip: true  # [osx]
     requirements:
       build:
         - {{ compiler('cxx') }}
@@ -454,6 +460,7 @@ outputs:
         LIGO style filter files.
 
   - name: python-awg
+    skip: true  # [osx]
     script: build-python-awg.sh
     requirements:
       build:
@@ -511,6 +518,7 @@ outputs:
         - chndump -h || test $? -eq 1  # [unix]
 
   - name: dmtviewer
+    skip: true  # [osx]
     requirements:
       build:
         - {{ compiler('cxx') }}
@@ -547,6 +555,7 @@ outputs:
         DMT viewer is used in LIGO control rooms to display DMT data.
 
   - name: dtt-awggui
+    skip: true  # [osx]
     requirements:
       build:
         - {{ compiler('cxx') }}
@@ -588,6 +597,7 @@ outputs:
         excitations, and custom user-defined excitations.
 
   - name: dtt-awgstream
+    skip: true  # [osx]
     requirements:
       build:
         - {{ compiler('c') }}
@@ -628,6 +638,7 @@ outputs:
         Includes awgexec_run program for streaming excitations from Matlab.
 
   - name: dtt-diag
+    skip: true  # [osx]
     requirements:
       build:
         - {{ compiler('cxx') }}
@@ -658,6 +669,7 @@ outputs:
         real-time data acquisition system.
 
   - name: dtt-diagd
+    skip: true  # [osx]
     requirements:
       build:
         - {{ compiler('cxx') }}
@@ -730,6 +742,7 @@ outputs:
         acquisition system.
 
   - name: dtt-monitors
+    skip: true  # [osx]
     requirements:
       build:
         - {{ compiler('cxx') }}
@@ -788,6 +801,7 @@ outputs:
         LIGO's real-time data acquisition system.
 
   - name: dtt-tpcmd
+    skip: true  # [osx]
     requirements:
       build:
         - {{ compiler('c') }}
@@ -816,6 +830,7 @@ outputs:
         Close and open test points on LIGO's real-time data acquisition system
 
   - name: dtt-xml-tools
+    skip: true  # [osx]
     requirements:
       build:
         - {{ compiler('cxx') }}
@@ -852,6 +867,7 @@ outputs:
         Includes xmlconv, xmldata, and xmldir.  Files can be produced by diag or diaggui.
 
   - name: fantom
+    skip: true  # [osx]
     requirements:
       build:
         - {{ compiler('c') }}
@@ -919,6 +935,7 @@ outputs:
         A variety of design strategies are supported.
 
   - name: lidax
+    skip: true  # [osx]
     requirements:
       build:
         - {{ compiler('cxx') }}
@@ -958,6 +975,7 @@ outputs:
   # -- metapackage ----------
 
   - name: cds-crtools
+    skip: true  # [osx]
     requirements:
       host:
         - nds2-client
