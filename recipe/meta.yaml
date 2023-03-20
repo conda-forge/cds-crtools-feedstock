@@ -1,16 +1,17 @@
 {% set name = "cds-crtools" %}
-{% set version = "3.1.2" %}
+{% set version = "3.1.5_a2" %}
 
 package:
   name: {{ name|lower }}-split
   version: {{ version }}
 
 source:
-  url: https://git.ligo.org/cds/dtt/-/archive/{{ version }}/{{ version }}.tar.gz
-  sha256: cd3979dce54a3673117a7eb18fe1bfb4dfc0332454a9e037fe692abc025de5d0
+  # url: https://git.ligo.org/cds/dtt/-/archive/{{ version }}/{{ version }}.tar.gz
+  url: https://git.ligo.org/erik.vonreis/dtt/-/archive/{{ version }}/{{ version }}.tar.gz
+  # sha256: cd3979dce54a3673117a7eb18fe1bfb4dfc0332454a9e037fe692abc025de5d0
   patches:
     # patch rpcgen arguments to find cpp
-    - rpcgen-cpp-path.patch
+    #- rpcgen-cpp-path.patch
 
 build:
   number: 11
@@ -25,26 +26,33 @@ requirements:
     - pkg-config  # [not win]
     - python >=3
     - sysroot_linux-64 2.17  # [linux64]
+    - zstd
+    - fftw
   host:
+    - zstd
     - cyrus-sasl
     - expat
     - fftw
     - gds-base
     - gds-base-crtools
-    - gds-gui-crtools
-    - gds-base-gdstrig
-    - gds-lsmp
-    - gds-root-extensions-crtools
-    - nds2-client
+    - gds-gui-crtools  # [not osx]
+    - gds-base-gdstrig  # [not osx]
+    - gds-lsmp  # [not osx]
+    - gds-root-extensions-crtools  # [not osx]
+    - nds2-client  # [not osx]
     - readline
-    - root_base
+    - root_base  # [not osx]
+    - pybind11
+    - numpy 1.24  # [osx]
+    - numpy  # [not osx]
 
 
 outputs:
   # -- C libraries ----------
 
   - name: libawg
-    skip: true  # [osx]
+    build:
+      skip: true  # [osx]
     requirements:
       build:
         - {{ compiler('cxx') }}
@@ -79,7 +87,8 @@ outputs:
         on the LIGO real-time data acquisition system.
 
   - name: libdfm
-    skip: true  # [osx]
+    build:
+      skip: true  # [osx]
     requirements:
       build:
         - {{ compiler('cxx') }}
@@ -122,7 +131,8 @@ outputs:
         DMT is part of the LIGO real-time data acquisition system
 
   - name: libdtt
-    skip: true  # [osx]
+    build:
+      skip: true  # [osx]
     requirements:
       build:
         - {{ compiler('cxx') }}
@@ -168,7 +178,8 @@ outputs:
         the LIGO real-time data acquisition system.
 
   - name: libfantom
-    skip: true  # [osx]
+    build:
+      skip: true  # [osx]
     requirements:
       build:
         - {{ compiler('cxx') }}
@@ -211,14 +222,18 @@ outputs:
       host:
         - gds-base
         - nds2-client
+        - zstd
+        - fftw
       run:
+        - fftw
+        - zstd
         - gds-base
     files:
       - include/foton/Filter*.hh
-      - lib/libfilterfile{{ SHLIB_EXT }}*
+      - lib/libfilterfile.*so
     test:
       commands:
-        - test -f ${PREFIX}/lib/libfilterfile${SHLIB_EXT}  # [unix]
+        - test -f ${PREFIX}/lib/libfilterfile.so  # [unix]
     about:
       home: https://git.ligo.org/cds/dtt
       dev_url: https://git.ligo.org/cds/dtt.git
@@ -233,6 +248,8 @@ outputs:
         used at LIGO to encode filter coefficients.
 
   - name: libfilterwiz
+    build:
+      skip: true  # [osx]
     requirements:
       build:
         - {{ compiler('cxx') }}
@@ -265,7 +282,8 @@ outputs:
         `foton`-style filter design windows for one-off filters.
 
   - name: libsistr
-    skip: true  # [osx]
+    build:
+      skip: true  # [osx]
     requirements:
       build:
         - {{ compiler('c') }}
@@ -299,7 +317,8 @@ outputs:
         `libsistr` is a library used for streaming custom excitations.
 
   - name: libtestpoint
-    skip: true  # [osx]
+    build:
+      skip: true  # [osx]
     requirements:
       build:
         - {{ compiler('cxx') }}
@@ -330,6 +349,8 @@ outputs:
         real-time data acquisition system.
 
   - name: crtools-gui-libraries
+    build:
+      skip: true  # [osx]
     requirements:
       build:
         - {{ compiler('cxx') }}
@@ -382,6 +403,8 @@ outputs:
         The gui libraries provide basic widgets to control room tools apps.
 
   - name: crtools-root-libraries
+    build:
+      skip: true  # [osx]
     requirements:
       build:
         - {{ compiler('cxx') }}
@@ -422,7 +445,7 @@ outputs:
 
   # -- python libraries -----
 
-  - name: python-foton
+  - name: python-foton    
     script: build-python-foton.sh
     requirements:
       build:
@@ -430,22 +453,35 @@ outputs:
         - make  # [unix]
         - pkg-config
         - sysroot_linux-64 2.17  # [linux64]
+        - pybind11
+        - fftw
+        - numpy 1.24  # [osx]
+        - numpy  # [not osx]
+        - scipy        
       host:
+        - {{ pin_subpackage('libfilterfile', exact=True) }}
         - nds2-client
-        - python
-        - root_base
-      run:
-        - {{ pin_subpackage('crtools-root-libraries', exact=True) }}
-        - gds-root-extensions-crtools
-        - numpy
-        - python
-        - root_base
+        - python        
+        - numpy 1.24  # [osx]
+        - numpy  # [not osx]
         - scipy
+        - fftw
+      run:
+        - {{ pin_subpackage('libfilterfile', exact=True) }}
+        - gds-base
+        - numpy 1.24  # [osx]
+        - numpy  # [not osx]
+        - python        
+        - scipy
+        - fftw
     test:
       source_files:
         - src/python/foton/
       commands:
         - (cd src/python/foton/; python foton_test.py)
+        - (cd src/python/foton/; python pydmtsigp_test.py)
+        - (cd src/python/foton/; python pyfilterfile_test.py)
+        - (cd src/python/foton/; python foton_unit_test.py)
     about:
       home: https://git.ligo.org/cds/dtt
       dev_url: https://git.ligo.org/cds/dtt.git
@@ -460,8 +496,9 @@ outputs:
         LIGO style filter files.
 
   - name: python-awg
-    skip: true  # [osx]
     script: build-python-awg.sh
+    build:
+      skip: true  # [osx]    
     requirements:
       build:
         - cmake
@@ -471,7 +508,7 @@ outputs:
       host:
         - nds2-client
         - python
-        - root_base
+        - root_base        
       run:
         - {{ pin_subpackage('libawg', exact=True) }}
         - {{ pin_subpackage('libtestpoint', exact=True) }}
@@ -500,6 +537,8 @@ outputs:
   # -- script packages ------
 
   - name: chndump
+    build:
+      skip: true  # [osx]
     requirements:
       build:
         - {{ compiler('c') }}
@@ -518,7 +557,8 @@ outputs:
         - chndump -h || test $? -eq 1  # [unix]
 
   - name: dmtviewer
-    skip: true  # [osx]
+    build:
+      skip: true  # [osx]
     requirements:
       build:
         - {{ compiler('cxx') }}
@@ -555,7 +595,8 @@ outputs:
         DMT viewer is used in LIGO control rooms to display DMT data.
 
   - name: dtt-awggui
-    skip: true  # [osx]
+    build:
+      skip: true  # [osx]
     requirements:
       build:
         - {{ compiler('cxx') }}
@@ -597,7 +638,8 @@ outputs:
         excitations, and custom user-defined excitations.
 
   - name: dtt-awgstream
-    skip: true  # [osx]
+    build:
+      skip: true  # [osx]
     requirements:
       build:
         - {{ compiler('c') }}
@@ -638,7 +680,8 @@ outputs:
         Includes awgexec_run program for streaming excitations from Matlab.
 
   - name: dtt-diag
-    skip: true  # [osx]
+    build:
+      skip: true  # [osx]
     requirements:
       build:
         - {{ compiler('cxx') }}
@@ -669,7 +712,8 @@ outputs:
         real-time data acquisition system.
 
   - name: dtt-diagd
-    skip: true  # [osx]
+    build:
+      skip: true  # [osx]
     requirements:
       build:
         - {{ compiler('cxx') }}
@@ -699,6 +743,8 @@ outputs:
         and excitations on LIGO's real-time data acquisition system.
 
   - name: dtt-diaggui
+    build:
+      skip: true  # [osx]
     requirements:
       build:
         - {{ compiler('cxx') }}
@@ -742,7 +788,8 @@ outputs:
         acquisition system.
 
   - name: dtt-monitors
-    skip: true  # [osx]
+    build:
+      skip: true  # [osx]
     requirements:
       build:
         - {{ compiler('cxx') }}
@@ -766,6 +813,8 @@ outputs:
         Monitors include InspiralRange.
 
   - name: dtt-multiawgstream
+    build:
+      skip: true  # [osx]
     requirements:
       build:
         - {{ compiler('c') }}
@@ -801,7 +850,8 @@ outputs:
         LIGO's real-time data acquisition system.
 
   - name: dtt-tpcmd
-    skip: true  # [osx]
+    build:
+      skip: true  # [osx]
     requirements:
       build:
         - {{ compiler('c') }}
@@ -830,7 +880,8 @@ outputs:
         Close and open test points on LIGO's real-time data acquisition system
 
   - name: dtt-xml-tools
-    skip: true  # [osx]
+    build:
+      skip: true  # [osx]
     requirements:
       build:
         - {{ compiler('cxx') }}
@@ -867,7 +918,8 @@ outputs:
         Includes xmlconv, xmldata, and xmldir.  Files can be produced by diag or diaggui.
 
   - name: fantom
-    skip: true  # [osx]
+    build:
+      skip: true  # [osx]
     requirements:
       build:
         - {{ compiler('c') }}
@@ -896,6 +948,8 @@ outputs:
         `fantom` can be used to translate from different LIGO data formats.
 
   - name: foton
+    build:
+      skip: true  # [osx]
     requirements:
       build:
         - {{ compiler('cxx') }}
@@ -935,7 +989,8 @@ outputs:
         A variety of design strategies are supported.
 
   - name: lidax
-    skip: true  # [osx]
+    build:
+      skip: true  # [osx]
     requirements:
       build:
         - {{ compiler('cxx') }}
@@ -975,7 +1030,8 @@ outputs:
   # -- metapackage ----------
 
   - name: cds-crtools
-    skip: true  # [osx]
+    build:
+      skip: true  # [osx]
     requirements:
       host:
         - nds2-client
