@@ -230,7 +230,7 @@ outputs:
         - gds-base
     files:
       - include/foton/Filter*.hh
-      - lib/libfilterfile.*so
+      - lib/libfilterfile.*so*      
     test:
       commands:
         - test -f ${PREFIX}/lib/libfilterfile.so  # [unix]
