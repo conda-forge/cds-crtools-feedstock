@@ -1,17 +1,377 @@
+About cds-crtools-feedstock
+===========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/cds-crtools-feedstock/blob/main/LICENSE.txt)
+
 About cds-crtools
-=================
+-----------------
 
 Home: https://git.ligo.org/cds/dtt
 
 Package license: GPL-2.0-or-later
 
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/cds-crtools-feedstock/blob/main/LICENSE.txt)
+Summary: CDS Control Room tools
+
+Development: https://git.ligo.org/cds/dtt.git
+About dtt-monitors
+------------------
+
+Home: https://git.ligo.org/cds/dtt
+
+Package license: GPL-2.0-or-later
 
 Summary: Monitors used in LIGO control rooms.
 
 Development: https://git.ligo.org/cds/dtt.git
 
 Monitors include InspiralRange.
+
+About libfantom
+---------------
+
+Home: https://git.ligo.org/cds/dtt
+
+Package license: GPL-2.0-or-later
+
+Summary: Library for translation of LIGO data frames and LIGO NDS data.
+
+Development: https://git.ligo.org/cds/dtt.git
+
+`libfantom` is a LIGO data access library for
+translating data frames and NDS data.
+
+About libfilterfile
+-------------------
+
+Home: https://git.ligo.org/cds/dtt
+
+Package license: GPL-2.0-or-later
+
+Summary: C++ library for manipulating foton filter files.
+
+Development: https://git.ligo.org/cds/dtt.git
+
+`libfilterfile` is an interface for reading and writing foton filter files,
+used at LIGO to encode filter coefficients.
+
+About libtestpoint
+------------------
+
+Home: https://git.ligo.org/cds/dtt
+
+Package license: GPL-2.0-or-later
+
+Summary: Library for manipulating LIGO test points.
+
+Development: https://git.ligo.org/cds/dtt.git
+
+`libtestpoint` allows opening and closing of test points on the LIGO
+real-time data acquisition system.
+
+About dtt-tpcmd
+---------------
+
+Home: https://git.ligo.org/cds/dtt
+
+Package license: GPL-2.0-or-later
+
+Summary: Command line tool for manipulating test points using LIGO's awgtpman.
+
+Development: https://git.ligo.org/cds/dtt.git
+
+Close and open test points on LIGO's real-time data acquisition system
+
+About fantom
+------------
+
+Home: https://git.ligo.org/cds/dtt
+
+Package license: GPL-2.0-or-later
+
+Summary: Command-line program for translation of LIGO frame and NDS data.
+
+Development: https://git.ligo.org/cds/dtt.git
+
+`fantom` can be used to translate from different LIGO data formats.
+
+About libawg
+------------
+
+Home: https://git.ligo.org/cds/dtt
+
+Package license: GPL-2.0-or-later
+
+Summary: Library used to interface with awgtpman, the waveform excitation program used at LIGO
+
+Development: https://git.ligo.org/cds/dtt.git
+
+`libawg` is an interface for opening, configuring, and controlling excitations
+on the LIGO real-time data acquisition system.
+
+About libdfm
+------------
+
+Home: https://git.ligo.org/cds/dtt
+
+Package license: GPL-2.0-or-later
+
+Summary: Library for interfacing with LIGO's data flow manager
+
+Development: https://git.ligo.org/cds/dtt.git
+
+DMT is part of the LIGO real-time data acquisition system
+
+About libfilterwiz
+------------------
+
+Home: https://git.ligo.org/cds/dtt
+
+Package license: GPL-2.0-or-later
+
+Summary: Functions for creating foton-style filter design windows.
+
+Development: https://git.ligo.org/cds/dtt.git
+
+Other LIGO programs such as `awggui` and `diaggui` use `libfilterwiz` to create
+`foton`-style filter design windows for one-off filters.
+
+About python-foton
+------------------
+
+Home: https://git.ligo.org/cds/dtt
+
+Package license: GPL-2.0-or-later
+
+Summary: Python bindings for foton functions
+
+Development: https://git.ligo.org/cds/dtt.git
+
+Library for design, inspection and manipulation of filters and
+LIGO style filter files.
+
+About crtools-gui-libraries
+---------------------------
+
+Home: https://git.ligo.org/cds/dtt
+
+Package license: GPL-2.0-or-later
+
+Summary: Common libraries used by LIGO control room graphical programs.
+
+Development: https://git.ligo.org/cds/dtt.git
+
+The gui libraries provide basic widgets to control room tools apps.
+
+About libdtt
+------------
+
+Home: https://git.ligo.org/cds/dtt
+
+Package license: GPL-2.0-or-later
+
+Summary: Library containing the functionality of LIGO's Diagnostics Test Tools.
+
+Development: https://git.ligo.org/cds/dtt.git
+
+`libdtt` is an interface for creating and running diagnostics tests on
+the LIGO real-time data acquisition system.
+
+About libsistr
+--------------
+
+Home: https://git.ligo.org/cds/dtt
+
+Package license: GPL-2.0-or-later
+
+Summary: Library for sending arbitrary data as excitations using LIGO's awgtpman.
+
+Development: https://git.ligo.org/cds/dtt.git
+
+`libsistr` is a library used for streaming custom excitations.
+
+About crtools-root-libraries
+----------------------------
+
+Home: https://git.ligo.org/cds/dtt
+
+Package license: GPL-2.0-or-later
+
+Summary: Common ROOT dictionary libraries used by LIGO control room programs.
+
+Development: https://git.ligo.org/cds/dtt.git
+
+ROOT dictionaries allow dynamic access to C++ objects.
+
+About dmtviewer
+---------------
+
+Home: https://git.ligo.org/cds/dtt
+
+Package license: GPL-2.0-or-later
+
+Summary: Graphical program for viewing output of DMT monitors.
+
+Development: https://git.ligo.org/cds/dtt.git
+
+DMT viewer is used in LIGO control rooms to display DMT data.
+
+About dtt-awggui
+----------------
+
+Home: https://git.ligo.org/cds/dtt
+
+Package license: GPL-2.0-or-later
+
+Summary: Graphical program for running excitations using LIGO's awgtpman.
+
+Development: https://git.ligo.org/cds/dtt.git
+
+`awggui` is an interface for creating excitations on LIGO's data
+acquisition system, including many periodic functions, random noise
+excitations, and custom user-defined excitations.
+
+About dtt-awgstream
+-------------------
+
+Home: https://git.ligo.org/cds/dtt
+
+Package license: GPL-2.0-or-later
+
+Summary: Stream arbitrary data as an excitation using LIGO's awgtpman.
+
+Development: https://git.ligo.org/cds/dtt.git
+
+Includes awgexec_run program for streaming excitations from Matlab.
+
+About dtt-diag
+--------------
+
+Home: https://git.ligo.org/cds/dtt
+
+Package license: GPL-2.0-or-later
+
+Summary: Command line program for running LIGO's Diagnostics Test Tools
+
+Development: https://git.ligo.org/cds/dtt.git
+
+`diag` is suitable for scripting diagnostics test and excitations on LIGO's
+real-time data acquisition system.
+
+About dtt-diagd
+---------------
+
+Home: https://git.ligo.org/cds/dtt
+
+Package license: GPL-2.0-or-later
+
+Summary: Daemon for running LIGO's Diagnostics Test Tools remotely
+
+Development: https://git.ligo.org/cds/dtt.git
+
+`diagd` is suitable for remotely running diagnostics test
+and excitations on LIGO's real-time data acquisition system.
+
+About dtt-diaggui
+-----------------
+
+Home: https://git.ligo.org/cds/dtt
+
+Package license: GPL-2.0-or-later
+
+Summary: Graphical program for running LIGO's Diagnostics Test Tools.
+
+Development: https://git.ligo.org/cds/dtt.git
+
+`diaggui` is a user interface for running diagnostics tests, creating
+excitations, calculating results on LIGO's real time system data
+acquisition system.
+
+About dtt-multiawgstream
+------------------------
+
+Home: https://git.ligo.org/cds/dtt
+
+Package license: GPL-2.0-or-later
+
+Summary: Stream multiple arbitrary data sets as excitations using LIGO's awgtpman.
+
+Development: https://git.ligo.org/cds/dtt.git
+
+Stream arbitrary data to multiple exciatation channels at once on
+LIGO's real-time data acquisition system.
+
+About dtt-xml-tools
+-------------------
+
+Home: https://git.ligo.org/cds/dtt
+
+Package license: GPL-2.0-or-later
+
+Summary: Command line tools for XML files produced using DTT.
+
+Development: https://git.ligo.org/cds/dtt.git
+
+Includes xmlconv, xmldata, and xmldir.  Files can be produced by diag or diaggui.
+
+About foton
+-----------
+
+Home: https://git.ligo.org/cds/dtt
+
+Package license: GPL-2.0-or-later
+
+Summary: Graphical program for designing and generating filters.
+
+Development: https://git.ligo.org/cds/dtt.git
+
+`foton` is used at LIGO to design and display filters,
+then generate filter files usable by the LIGO real-time
+data acquisition system.
+A variety of design strategies are supported.
+
+About lidax
+-----------
+
+Home: https://git.ligo.org/cds/dtt
+
+Package license: GPL-2.0-or-later
+
+Summary: Graphical program for retrieving LIGO data.
+
+Development: https://git.ligo.org/cds/dtt.git
+
+lidax reads LIGO frame files.
+
+About python-awg
+----------------
+
+Home: https://git.ligo.org/cds/dtt
+
+Package license: GPL-2.0-or-later
+
+Summary: Python bindings to libawg
+
+Development: https://git.ligo.org/cds/dtt.git
+
+Create excitations using LIGO\'s awgtpman using Python.
+The awg module allows simple python scripting of excitations
+on the LIGO data acquisition system.
+
+About cds-crtools
+-----------------
+
+Home: https://git.ligo.org/cds/dtt
+
+Package license: GPL-2.0-or-later
+
+Summary: CDS Control Room tools
+
+Development: https://git.ligo.org/cds/dtt.git
+
+cds-crtools is a metapackage that installs several programs
+used to control LIGO-style interfrometers. The package includes
+`diag`, `diagd`, `diaggui`, `awggui`, `tpcmd`, `chndump`
+along with `foton`, the filter design program, and others.
 
 
 Current build status
@@ -36,6 +396,13 @@ Current build status
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=14511&branchName=main">
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cds-crtools-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=14511&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cds-crtools-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_" alt="variant">
                 </a>
               </td>
             </tr>
