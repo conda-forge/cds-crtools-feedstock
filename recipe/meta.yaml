@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://git.ligo.org/cds/dtt/-/archive/{{ versiontag }}/{{ versiontag }}.tar.gz  
-  sha256: ae87e228e0fde4010dd51fc4b9546a6a515e1639f0b2357a16467aec4d200871
+  sha256: 3dfb9a226e89bf0b7a25195fc5f3dbfaa8e4a46b09e64906d7b0eaf2a8deeb94
   patches:
 
 build:
