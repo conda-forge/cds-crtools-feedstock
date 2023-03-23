@@ -13,6 +13,7 @@ BUILD_DIR="src/python/foton"
 # configure
 cmake \
 	${SRC_DIR} \
+	-DONLY_FOTON=1 \
 	-DCMAKE_BUILD_TYPE:STRING=Release \
 	-DCMAKE_INSTALL_PREFIX:PATH="${PREFIX}" \
 	-DENABLE_PYTHON${PY_VER%%.*}:BOOL=yes \
