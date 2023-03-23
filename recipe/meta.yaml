@@ -459,16 +459,14 @@ outputs:
         - fftw
         - numpy >=1.20  # [osx]        
         - scipy  # [osx]
-        - gds-base
-        - gds-gui-crtools  # [not osx]
+        - gds-base        
       host:
         - {{ pin_subpackage('libfilterfile', exact=True) }}        
         - python >=3.8
         - numpy >=1.20  # [osx]        
         - scipy  # [osx]
         - fftw
-        - gds-base
-        - gds-gui-crtools  # [not osx]
+        - gds-base        
       run:
         - {{ pin_subpackage('libfilterfile', exact=True) }}
         - gds-base
