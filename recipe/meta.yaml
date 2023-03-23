@@ -10,8 +10,6 @@ source:
   url: https://git.ligo.org/erik.vonreis/dtt/-/archive/{{ version }}/{{ version }}.tar.gz
   # sha256: cd3979dce54a3673117a7eb18fe1bfb4dfc0332454a9e037fe692abc025de5d0
   patches:
-    # patch rpcgen arguments to find cpp
-    #- rpcgen-cpp-path.patch
 
 build:
   number: 11
@@ -24,12 +22,15 @@ requirements:
     - cmake
     - make  # [not win]
     - pkg-config  # [not win]
-    - python >=3
+    - python >=3.8
     - sysroot_linux-64 2.17  # [linux64]
-    - zstd
+    - zstd  # [osx]
     - fftw
+    #- root_base  # [not osx]
+    - gds-base
   host:
-    - zstd
+    - python >=3.8
+    - zstd  # [osx]
     - cyrus-sasl
     - expat
     - fftw
@@ -41,10 +42,9 @@ requirements:
     - gds-root-extensions-crtools  # [not osx]
     - nds2-client  # [not osx]
     - readline
-    - root_base  # [not osx]
-    - pybind11
-    - numpy 1.24  # [osx]
-    - numpy  # [not osx]
+    # - root_base  # [not osx]
+    # - pybind11
+    - numpy >=1.20    
 
 
 outputs:
@@ -415,7 +415,7 @@ outputs:
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - {{ pin_subpackage('libfilterfile', exact=True) }}
         - nds2-client
-        - root_base
+        - root_base  # [osx]
       run:
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - {{ pin_subpackage('libfilterfile', exact=True) }}
@@ -449,29 +449,31 @@ outputs:
     script: build-python-foton.sh
     requirements:
       build:
+        - {{ compiler('c') }}
+        - {{ compiler('cxx') }}
         - cmake
         - make  # [unix]
         - pkg-config
         - sysroot_linux-64 2.17  # [linux64]
         - pybind11
         - fftw
-        - numpy 1.24  # [osx]
-        - numpy  # [not osx]
-        - scipy        
+        - numpy >=1.20  # [osx]        
+        - scipy  # [osx]
+        - gds-base
+        - gds-gui-crtools  # [not osx]
       host:
-        - {{ pin_subpackage('libfilterfile', exact=True) }}
-        - nds2-client
-        - python        
-        - numpy 1.24  # [osx]
-        - numpy  # [not osx]
-        - scipy
+        - {{ pin_subpackage('libfilterfile', exact=True) }}        
+        - python >=3.8
+        - numpy >=1.20  # [osx]        
+        - scipy  # [osx]
         - fftw
+        - gds-base
+        - gds-gui-crtools  # [not osx]
       run:
         - {{ pin_subpackage('libfilterfile', exact=True) }}
         - gds-base
-        - numpy 1.24  # [osx]
-        - numpy  # [not osx]
-        - python        
+        - numpy >=1.20         
+        - python >=3.8  
         - scipy
         - fftw
     test:
@@ -505,16 +507,18 @@ outputs:
         - make  # [unix]
         - pkg-config
         - sysroot_linux-64 2.17  # [linux64]
+        - gds-gui-crtools  # [not osx]
       host:
         - nds2-client
-        - python
+        - python >=3.8
         - root_base        
+        - gds-gui-crtools  # [not osx]
       run:
         - {{ pin_subpackage('libawg', exact=True) }}
         - {{ pin_subpackage('libtestpoint', exact=True) }}
         - {{ pin_subpackage('libsistr', exact=True) }}
-        - numpy
-        - python
+        - numpy >=1.20
+        - python >=3.8
         - root_base
         - scipy
     test:
@@ -570,7 +574,7 @@ outputs:
         - gds-base-crtools
         - gds-gui-crtools
         - nds2-client
-        - root_base
+        - root_base  # [osx]
       run:
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - gds-base
@@ -610,7 +614,7 @@ outputs:
         - {{ pin_subpackage('libawg', exact=True) }}
         - {{ pin_subpackage('libtestpoint', exact=True) }}
         - nds2-client
-        - root_base
+        - root_base  # [osx]
       run:
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - gds-base
@@ -758,7 +762,7 @@ outputs:
         - {{ pin_subpackage('libdtt', exact=True) }}
         - {{ pin_subpackage('libfantom', exact=True) }}
         - nds2-client
-        - root_base
+        - root_base  # [osx]
       run:
         - gds-base
         - gds-gui-crtools
@@ -961,7 +965,7 @@ outputs:
         - {{ pin_subpackage('libfilterfile', exact=True) }}
         - {{ pin_subpackage('libfilterwiz', exact=True) }}
         - nds2-client
-        - root_base
+        - root_base  # [osx]
       run:
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - gds-base
@@ -1001,7 +1005,7 @@ outputs:
         - gds-base
         - {{ pin_subpackage('libdfm', exact=True) }}
         - nds2-client
-        - root_base
+        - root_base  # [osx]
       run:
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - gds-base
@@ -1034,13 +1038,13 @@ outputs:
       skip: true  # [osx]
     requirements:
       host:
-        - nds2-client
-        - python
-        - root_base
+        #- nds2-client
+        #- python >=3.8
+        #- root_base
       run:
-        - nds2-client
-        - python
-        - root_base
+        #- nds2-client
+        #- python >=3.8
+        #- root_base
         # all of the outputs
         - {{ pin_subpackage('chndump', exact=True) }}
         - {{ pin_subpackage('dmtviewer', exact=True) }}
