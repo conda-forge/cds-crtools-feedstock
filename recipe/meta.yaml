@@ -28,7 +28,7 @@ requirements:
     - fftw
     #- root_base  # [not osx]
     - gds-base    
-    - cross-python_{{ target_platform }}
+    - cross-python_{{ target_platform }}  # [build_platform != target_platform]
   host:
     - python >=3.8
     - zstd  # [osx]
@@ -220,7 +220,7 @@ outputs:
         - {{ compiler('cxx') }}
         - make  # [unix]
         - sysroot_linux-64 2.17  # [linux64]
-        - cross-python_{{ target_platform }}
+        - cross-python_{{ target_platform }}  # [build_platform != target_platform]
       host:
         - gds-base
         - nds2-client
@@ -462,7 +462,7 @@ outputs:
         - numpy >=1.20  # [osx]        
         - scipy  # [osx]
         - gds-base        
-        - cross-python_{{ target_platform }}
+        - cross-python_{{ target_platform }}  # [build_platform != target_platform]
       host:
         - {{ pin_subpackage('libfilterfile', exact=True) }}        
         - python >=3.8
