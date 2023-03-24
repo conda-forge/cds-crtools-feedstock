@@ -7,7 +7,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://git.ligo.org/cds/dtt/-/archive/{{ versiontag }}/{{ versiontag }}.tar.gz  
+  url: https://git.ligo.org/cds/software/dtt/-/archive/{{ versiontag }}/{{ versiontag }}.tar.gz  
   sha256: 0f4266ef299f4c4284d6fc74071cc6e703a28fb4888b9ed6aca17c02e67d2581
   patches:
 
