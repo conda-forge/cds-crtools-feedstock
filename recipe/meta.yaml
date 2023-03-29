@@ -226,6 +226,7 @@ outputs:
         - nds2-client
         - zstd
         - fftw
+        - python
       run:
         - fftw
         - zstd
