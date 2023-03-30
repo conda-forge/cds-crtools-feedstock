@@ -220,14 +220,14 @@ outputs:
         - {{ compiler('cxx') }}
         - make  # [unix]
         - sysroot_linux-64 2.17  # [linux64]
-        #- python {{ python }}
+        - python {{ python }}
         - cross-python_{{ target_platform }}  # [build_platform != target_platform]
       host:
         - gds-base
         - nds2-client
         - zstd
         - fftw
-        #- python {{ python }}  
+        - python {{ python }}  
       run:
         - fftw
         - zstd
