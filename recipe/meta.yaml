@@ -220,14 +220,14 @@ outputs:
         - {{ compiler('cxx') }}
         - make  # [unix]
         - sysroot_linux-64 2.17  # [linux64]
-        - python {{ python }}
+        - python {{ python }}  # [osx]
         - cross-python_{{ target_platform }}  # [build_platform != target_platform]
       host:
         - gds-base
         - nds2-client
         - zstd
         - fftw
-        - python {{ python }}  
+        - python {{ python }}  # [osx]  
       run:
         - fftw
         - zstd
@@ -360,6 +360,8 @@ outputs:
         - {{ compiler('cxx') }}
         - make  # [unix]
         - sysroot_linux-64 2.17  # [linux64]
+        - python {{ python }}
+        - root_base {{ root_base }}
       host:
         - gds-base
         - gds-base-crtools
@@ -367,7 +369,8 @@ outputs:
         - {{ pin_subpackage('libdfm', exact=True) }}
         - {{ pin_subpackage('libfantom', exact=True) }}
         - nds2-client
-        - root_base {{ root_base }}  # [not osx]
+        - python {{ python }}
+        - root_base {{ root_base }}
       run:
         - gds-base
         - gds-base-crtools
@@ -414,12 +417,15 @@ outputs:
         - {{ compiler('cxx') }}
         - make  # [unix]
         - sysroot_linux-64 2.17  # [linux64]
+        - python {{ python }}
+        - root_base {{ root_base }}
       host:
         - gds-base
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - {{ pin_subpackage('libfilterfile', exact=True) }}
         - nds2-client
-        - root_base {{ root_base }}  # [not osx]
+        - python {{ python }}
+        - root_base {{ root_base }}
       run:
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - {{ pin_subpackage('libfilterfile', exact=True) }}
@@ -572,13 +578,16 @@ outputs:
         - {{ compiler('cxx') }}
         - make  # [unix]
         - sysroot_linux-64 2.17  # [linux64]
+        - python {{ python }}
+        - root_base {{ root_base }}
       host:
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - gds-base
         - gds-base-crtools
         - gds-gui-crtools
         - nds2-client
-        - root_base {{ root_base }}  # [not osx]
+        - python {{ python }}
+        - root_base {{ root_base }}
       run:
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - gds-base
@@ -610,6 +619,8 @@ outputs:
         - {{ compiler('cxx') }}
         - make  # [unix]
         - sysroot_linux-64 2.17  # [linux64]
+        - python {{ python }}
+        - root_base {{ root_base }}
       host:
 
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
@@ -618,7 +629,8 @@ outputs:
         - {{ pin_subpackage('libawg', exact=True) }}
         - {{ pin_subpackage('libtestpoint', exact=True) }}
         - nds2-client
-        - root_base {{ root_base }}  # [not osx]
+        - python {{ python }}
+        - root_base {{ root_base }}
       run:
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - gds-base
@@ -758,6 +770,8 @@ outputs:
         - {{ compiler('cxx') }}
         - make  # [unix]
         - sysroot_linux-64 2.17  # [linux64]
+        - python {{ python }}
+        - root_base {{ root_base }}
       host:
         - gds-base
         - gds-gui-crtools
@@ -766,7 +780,8 @@ outputs:
         - {{ pin_subpackage('libdtt', exact=True) }}
         - {{ pin_subpackage('libfantom', exact=True) }}
         - nds2-client
-        - root_base {{ root_base }}  # [not osx]
+        - python {{ python }}
+        - root_base {{ root_base }}
       run:
         - gds-base
         - gds-gui-crtools
@@ -963,13 +978,16 @@ outputs:
         - {{ compiler('cxx') }}
         - make  # [unix]
         - sysroot_linux-64 2.17  # [linux64]
+        - python {{ python }}
+        - root_base {{ root_base }}
       host:
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - gds-base
         - {{ pin_subpackage('libfilterfile', exact=True) }}
         - {{ pin_subpackage('libfilterwiz', exact=True) }}
         - nds2-client
-        - root_base {{ root_base }}  # [not osx]
+        - python {{ python }}
+        - root_base {{ root_base }}
       run:
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - gds-base
@@ -1004,12 +1022,15 @@ outputs:
         - {{ compiler('cxx') }}
         - make  # [unix]
         - sysroot_linux-64 2.17  # [linux64]
+        - python {{ python }}
+        - root_base {{ root_base }}
       host:
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - gds-base
         - {{ pin_subpackage('libdfm', exact=True) }}
         - nds2-client
-        - root_base {{ root_base }}  # [not osx]
+        - python {{ python }}
+        - root_base {{ root_base }}
       run:
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - gds-base
