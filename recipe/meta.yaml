@@ -7,7 +7,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://git.ligo.org/cds/software/dtt/-/archive/{{ versiontag }}/{{ versiontag }}.tar.gz  
+  url: https://git.ligo.org/cds/software/dtt/-/archive/{{ versiontag }}/{{ versiontag }}.tar.gz
   sha256: 1483316cf39f2335d1c0144459e7cec35c09fa1bdff38907f0e39f0e16c00ba6
   patches:
 
@@ -27,7 +27,7 @@ requirements:
     - zstd  # [osx]
     - fftw
     #- root_base  # [not osx]
-    - gds-base    
+    - gds-base
     - cross-python_{{ target_platform }}  # [build_platform != target_platform]
   host:
     - python >=3.8
@@ -45,7 +45,7 @@ requirements:
     - readline
     # - root_base  # [not osx]
     # - pybind11
-    - numpy >=1.20    
+    - numpy >=1.20
 
 
 outputs:
@@ -232,7 +232,7 @@ outputs:
         - gds-base
     files:
       - include/foton/Filter*.hh
-      - lib/libfilterfile.*so*      
+      - lib/libfilterfile.*so*
     test:
       commands:
         - test -f ${PREFIX}/lib/libfilterfile.so  # [unix]
@@ -447,7 +447,7 @@ outputs:
 
   # -- python libraries -----
 
-  - name: python-foton    
+  - name: python-foton
     script: build-python-foton.sh
     requirements:
       build:
@@ -459,22 +459,22 @@ outputs:
         - sysroot_linux-64 2.17  # [linux64]
         - pybind11
         - fftw
-        - numpy >=1.20  # [osx]        
+        - numpy >=1.20  # [osx]
         - scipy  # [osx]
-        - gds-base        
+        - gds-base
         - cross-python_{{ target_platform }}  # [build_platform != target_platform]
       host:
-        - {{ pin_subpackage('libfilterfile', exact=True) }}        
+        - {{ pin_subpackage('libfilterfile', exact=True) }}
         - python >=3.8
-        - numpy >=1.20  # [osx]        
+        - numpy >=1.20  # [osx]
         - scipy  # [osx]
         - fftw
-        - gds-base        
+        - gds-base
       run:
         - {{ pin_subpackage('libfilterfile', exact=True) }}
         - gds-base
-        - numpy >=1.20         
-        - python >=3.8  
+        - numpy >=1.20
+        - python >=3.8
         - scipy
         - fftw
     test:
@@ -501,7 +501,7 @@ outputs:
   - name: python-awg
     script: build-python-awg.sh
     build:
-      skip: true  # [osx]    
+      skip: true  # [osx]
     requirements:
       build:
         - cmake
@@ -513,7 +513,7 @@ outputs:
       host:
         - nds2-client
         - python >=3.8
-        - root_base        
+        - root_base
         - gds-gui-crtools  # [not osx]
       run:
         - {{ pin_subpackage('libawg', exact=True) }}
