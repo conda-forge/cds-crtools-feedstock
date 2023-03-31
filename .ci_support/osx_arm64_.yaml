@@ -18,6 +18,10 @@ fftw:
 - '3'
 macos_machine:
 - arm64-apple-darwin20.0.0
+numpy:
+- '1.21'
+- '1.21'
+- '1.21'
 pin_run_as_build:
   python:
     min_pin: x.x
@@ -28,10 +32,12 @@ python:
 - 3.9.* *_cpython
 readline:
 - '8'
+root_base:
+- 6.28.0
 target_platform:
 - osx-arm64
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
-zstd:
-- '1.5'
+- - python
+  - numpy

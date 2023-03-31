@@ -18,6 +18,10 @@ expat:
 - '2'
 fftw:
 - '3'
+numpy:
+- '1.21'
+- '1.21'
+- '1.21'
 pin_run_as_build:
   python:
     min_pin: x.x
@@ -35,3 +39,5 @@ target_platform:
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
+- - python
+  - numpy
