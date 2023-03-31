@@ -14,7 +14,7 @@ build:
   error_overlinking: true
   error_overdepending: true
   number: 1
-  skip: true  # [not linux and not osx]
+  skip: true  # [win]
 
 requirements:
   build:
@@ -25,14 +25,7 @@ requirements:
     - pkg-config  # [not win]
     - python >=3.8
     - sysroot_linux-64 2.17  # [linux64]
-    - zstd  # [osx]
-    - fftw
-    #- root_base  # [not osx]
-    - gds-base
-    - cross-python_{{ target_platform }}  # [build_platform != target_platform]
   host:
-    - python >=3.8
-    - zstd  # [osx]
     - cyrus-sasl
     - expat
     - fftw
@@ -44,10 +37,7 @@ requirements:
     - gds-root-extensions-crtools  # [not osx]
     - nds2-client  # [not osx]
     - readline
-    # - root_base  # [not osx]
-    # - pybind11
-    - numpy >=1.20
-
+    - root_base
 
 outputs:
   # -- C libraries ----------
@@ -460,6 +450,9 @@ outputs:
 
   - name: python-foton
     script: build-python-foton.sh
+    build:
+      ignore_run_exports:
+        - numpy
     requirements:
       build:
         - {{ compiler('c') }}
@@ -474,6 +467,7 @@ outputs:
       host:
         - gds-base
         - {{ pin_subpackage('libfilterfile', exact=True) }}
+        - pybind11
         - python
         - scipy
       run:
@@ -519,14 +513,15 @@ outputs:
         - cross-python_{{ target_platform }}  # [build_platform != target_platform]
         - python                              # [build_platform != target_platform]
       host:
+        - gds-gui-crtools
         - nds2-client
+        - pybind11
         - python
         - root_base
-        - gds-gui-crtools
       run:
         - {{ pin_subpackage('libawg', exact=True) }}
-        - {{ pin_subpackage('libtestpoint', exact=True) }}
         - {{ pin_subpackage('libsistr', exact=True) }}
+        - {{ pin_subpackage('libtestpoint', exact=True) }}
         - numpy >=1.20
         - python
         - root_base
@@ -1064,13 +1059,9 @@ outputs:
       skip: true  # [osx]
     requirements:
       host:
-        #- nds2-client
-        #- python >=3.8
-        #- root_base
+        - python
       run:
-        #- nds2-client
-        #- python >=3.8
-        #- root_base
+        - python
         # all of the outputs
         - {{ pin_subpackage('chndump', exact=True) }}
         - {{ pin_subpackage('dmtviewer', exact=True) }}
