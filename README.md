@@ -121,20 +121,6 @@ Development: https://git.ligo.org/cds/dtt.git
 
 DMT is part of the LIGO real-time data acquisition system
 
-About libfilterwiz
-------------------
-
-Home: https://git.ligo.org/cds/dtt
-
-Package license: GPL-2.0-or-later
-
-Summary: Functions for creating foton-style filter design windows.
-
-Development: https://git.ligo.org/cds/dtt.git
-
-Other LIGO programs such as `awggui` and `diaggui` use `libfilterwiz` to create
-`foton`-style filter design windows for one-off filters.
-
 About python-foton
 ------------------
 
@@ -313,21 +299,19 @@ Development: https://git.ligo.org/cds/dtt.git
 
 Includes xmlconv, xmldata, and xmldir.  Files can be produced by diag or diaggui.
 
-About foton
------------
+About libfilterwiz
+------------------
 
 Home: https://git.ligo.org/cds/dtt
 
 Package license: GPL-2.0-or-later
 
-Summary: Graphical program for designing and generating filters.
+Summary: Functions for creating foton-style filter design windows.
 
 Development: https://git.ligo.org/cds/dtt.git
 
-`foton` is used at LIGO to design and display filters,
-then generate filter files usable by the LIGO real-time
-data acquisition system.
-A variety of design strategies are supported.
+Other LIGO programs such as `awggui` and `diaggui` use `libfilterwiz` to create
+`foton`-style filter design windows for one-off filters.
 
 About lidax
 -----------
@@ -356,6 +340,22 @@ Development: https://git.ligo.org/cds/dtt.git
 Create excitations using LIGO\'s awgtpman using Python.
 The awg module allows simple python scripting of excitations
 on the LIGO data acquisition system.
+
+About foton
+-----------
+
+Home: https://git.ligo.org/cds/dtt
+
+Package license: GPL-2.0-or-later
+
+Summary: Graphical program for designing and generating filters.
+
+Development: https://git.ligo.org/cds/dtt.git
+
+`foton` is used at LIGO to design and display filters,
+then generate filter files usable by the LIGO real-time
+data acquisition system.
+A variety of design strategies are supported.
 
 About cds-crtools
 -----------------

@@ -1,19 +1,20 @@
 {% set name = "cds-crtools" %}
-{% set version = "3.1.5.dev4" %}
-{% set versiontag = "3.1.5_dev4" %}
+{% set version = "3.1.5_dev4" %}
 
 package:
   name: {{ name|lower }}-split
-  version: {{ version }}
+  version: {{ version|replace('_', '.') }}
 
 source:
-  url: https://git.ligo.org/cds/software/dtt/-/archive/{{ versiontag }}/{{ versiontag }}.tar.gz  
+  url: https://git.ligo.org/cds/software/dtt/-/archive/{{ version }}/{{ version }}.tar.gz
   sha256: 1483316cf39f2335d1c0144459e7cec35c09fa1bdff38907f0e39f0e16c00ba6
   patches:
 
 build:
-  number: 0
-  skip: true  # [not linux and not osx]
+  error_overlinking: true
+  error_overdepending: true
+  number: 1
+  skip: true  # [win]
 
 requirements:
   build:
@@ -24,14 +25,7 @@ requirements:
     - pkg-config  # [not win]
     - python >=3.8
     - sysroot_linux-64 2.17  # [linux64]
-    - zstd  # [osx]
-    - fftw
-    #- root_base  # [not osx]
-    - gds-base    
-    - cross-python_{{ target_platform }}  # [build_platform != target_platform]
   host:
-    - python >=3.8
-    - zstd  # [osx]
     - cyrus-sasl
     - expat
     - fftw
@@ -43,16 +37,15 @@ requirements:
     - gds-root-extensions-crtools  # [not osx]
     - nds2-client  # [not osx]
     - readline
-    # - root_base  # [not osx]
-    # - pybind11
-    - numpy >=1.20    
-
+    - root_base
 
 outputs:
   # -- C libraries ----------
 
   - name: libawg
     build:
+      error_overlinking: true
+      error_overdepending: true
       skip: true  # [osx]
     requirements:
       build:
@@ -62,7 +55,6 @@ outputs:
       host:
         - gds-base
         - {{ pin_subpackage('libtestpoint', exact=True) }}
-        - nds2-client
       run:
         - gds-base
         - {{ pin_subpackage('libtestpoint', exact=True) }}
@@ -89,6 +81,8 @@ outputs:
 
   - name: libdfm
     build:
+      error_overlinking: true
+      error_overdepending: true
       skip: true  # [osx]
     requirements:
       build:
@@ -99,7 +93,6 @@ outputs:
         - gds-base
         - {{ pin_subpackage('libfantom', exact=True) }}
         - {{ pin_subpackage('libtestpoint', exact=True) }}
-        - nds2-client
       run:
         - gds-base
         - {{ pin_subpackage('libfantom', exact=True) }}
@@ -133,6 +126,8 @@ outputs:
 
   - name: libdtt
     build:
+      error_overlinking: true
+      error_overdepending: true
       skip: true  # [osx]
     requirements:
       build:
@@ -150,11 +145,11 @@ outputs:
         - nds2-client
         - readline
       run:
-        - expat
         - gds-base
         - gds-base-crtools
         - {{ pin_subpackage('libawg', exact=True) }}
         - {{ pin_subpackage('libdfm', exact=True) }}
+        - libexpat
         - {{ pin_subpackage('libfantom', exact=True) }}
         - {{ pin_subpackage('libtestpoint', exact=True) }}
         - nds2-client
@@ -180,6 +175,8 @@ outputs:
 
   - name: libfantom
     build:
+      error_overlinking: true
+      error_overdepending: true
       skip: true  # [osx]
     requirements:
       build:
@@ -189,7 +186,6 @@ outputs:
       host:
         - gds-base
         - gds-lsmp
-        - nds2-client
         - readline
       run:
         - gds-base
@@ -220,19 +216,13 @@ outputs:
         - {{ compiler('cxx') }}
         - make  # [unix]
         - sysroot_linux-64 2.17  # [linux64]
-        - cross-python_{{ target_platform }}  # [build_platform != target_platform]
       host:
         - gds-base
-        - nds2-client
-        - zstd
-        - fftw
       run:
-        - fftw
-        - zstd
         - gds-base
     files:
       - include/foton/Filter*.hh
-      - lib/libfilterfile.*so*      
+      - lib/libfilterfile.*so*
     test:
       commands:
         - test -f ${PREFIX}/lib/libfilterfile.so  # [unix]
@@ -251,6 +241,8 @@ outputs:
 
   - name: libfilterwiz
     build:
+      error_overlinking: true
+      error_overdepending: true
       skip: true  # [osx]
     requirements:
       build:
@@ -258,12 +250,17 @@ outputs:
         - make  # [not win]
         - sysroot_linux-64 2.17  # [linux64]
       host:
+        - crtools-gui-libraries
         - gds-base
+        - gds-gui-crtools
         - {{ pin_subpackage('libfilterfile', exact=True) }}
-        - nds2-client
+        - root_base
       run:
+        - crtools-gui-libraries
         - gds-base
+        - gds-gui-crtools
         - {{ pin_subpackage('libfilterfile', exact=True) }}
+        - root_base
     files:
       - include/foton/TLGFilter*.hh
       - lib/libfilterwiz{{ SHLIB_EXT }}*
@@ -285,6 +282,8 @@ outputs:
 
   - name: libsistr
     build:
+      error_overlinking: true
+      error_overdepending: true
       skip: true  # [osx]
     requirements:
       build:
@@ -295,7 +294,6 @@ outputs:
         - gds-base
         - {{ pin_subpackage('libawg', exact=True) }}
         - {{ pin_subpackage('libtestpoint', exact=True) }}
-        - nds2-client
       run:
         - gds-base
         - {{ pin_subpackage('libawg', exact=True) }}
@@ -320,6 +318,8 @@ outputs:
 
   - name: libtestpoint
     build:
+      error_overlinking: true
+      error_overdepending: true
       skip: true  # [osx]
     requirements:
       build:
@@ -328,7 +328,6 @@ outputs:
         - sysroot_linux-64 2.17  # [linux64]
       host:
         - gds-base
-        - nds2-client
       run:
         - gds-base
     files:
@@ -352,6 +351,8 @@ outputs:
 
   - name: crtools-gui-libraries
     build:
+      error_overlinking: true
+      error_overdepending: true
       skip: true  # [osx]
     requirements:
       build:
@@ -364,7 +365,6 @@ outputs:
         - gds-gui-crtools
         - {{ pin_subpackage('libdfm', exact=True) }}
         - {{ pin_subpackage('libfantom', exact=True) }}
-        - nds2-client
         - root_base
       run:
         - gds-base
@@ -406,6 +406,8 @@ outputs:
 
   - name: crtools-root-libraries
     build:
+      error_overlinking: true
+      error_overdepending: true
       skip: true  # [osx]
     requirements:
       build:
@@ -416,8 +418,7 @@ outputs:
         - gds-base
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - {{ pin_subpackage('libfilterfile', exact=True) }}
-        - nds2-client
-        - root_base  # [osx]
+        - root_base
       run:
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - {{ pin_subpackage('libfilterfile', exact=True) }}
@@ -447,8 +448,11 @@ outputs:
 
   # -- python libraries -----
 
-  - name: python-foton    
+  - name: python-foton
     script: build-python-foton.sh
+    build:
+      ignore_run_exports:
+        - numpy
     requirements:
       build:
         - {{ compiler('c') }}
@@ -457,26 +461,21 @@ outputs:
         - make  # [unix]
         - pkg-config
         - sysroot_linux-64 2.17  # [linux64]
-        - pybind11
-        - fftw
-        - numpy >=1.20  # [osx]        
-        - scipy  # [osx]
-        - gds-base        
+        # extras for cross-compiling
         - cross-python_{{ target_platform }}  # [build_platform != target_platform]
+        - python                              # [build_platform != target_platform]
       host:
-        - {{ pin_subpackage('libfilterfile', exact=True) }}        
-        - python >=3.8
-        - numpy >=1.20  # [osx]        
-        - scipy  # [osx]
-        - fftw
-        - gds-base        
-      run:
-        - {{ pin_subpackage('libfilterfile', exact=True) }}
         - gds-base
-        - numpy >=1.20         
-        - python >=3.8  
+        - {{ pin_subpackage('libfilterfile', exact=True) }}
+        - pybind11
+        - python
         - scipy
-        - fftw
+      run:
+        - gds-base
+        - {{ pin_subpackage('libfilterfile', exact=True) }}
+        - numpy >=1.20
+        - python
+        - scipy
     test:
       source_files:
         - src/python/foton/
@@ -501,26 +500,30 @@ outputs:
   - name: python-awg
     script: build-python-awg.sh
     build:
-      skip: true  # [osx]    
+      error_overlinking: true
+      error_overdepending: true
+      skip: true  # [osx]
     requirements:
       build:
         - cmake
         - make  # [unix]
         - pkg-config
         - sysroot_linux-64 2.17  # [linux64]
-        - gds-gui-crtools  # [not osx]
-        - pybind11
+        # extras for cross-compiling
+        - cross-python_{{ target_platform }}  # [build_platform != target_platform]
+        - python                              # [build_platform != target_platform]
       host:
+        - gds-gui-crtools
         - nds2-client
-        - python >=3.8
-        - root_base        
-        - gds-gui-crtools  # [not osx]
+        - pybind11
+        - python
+        - root_base
       run:
         - {{ pin_subpackage('libawg', exact=True) }}
-        - {{ pin_subpackage('libtestpoint', exact=True) }}
         - {{ pin_subpackage('libsistr', exact=True) }}
+        - {{ pin_subpackage('libtestpoint', exact=True) }}
         - numpy >=1.20
-        - python >=3.8
+        - python
         - root_base
         - scipy
     test:
@@ -544,6 +547,8 @@ outputs:
 
   - name: chndump
     build:
+      error_overlinking: true
+      error_overdepending: true
       skip: true  # [osx]
     requirements:
       build:
@@ -552,7 +557,6 @@ outputs:
         - sysroot_linux-64 2.17  # [linux64]
       host:
         - {{ pin_subpackage('libdtt', exact=True) }}
-        - nds2-client
       run:
         - {{ pin_subpackage('libdtt', exact=True) }}
     files:
@@ -564,6 +568,8 @@ outputs:
 
   - name: dmtviewer
     build:
+      error_overlinking: true
+      error_overdepending: true
       skip: true  # [osx]
     requirements:
       build:
@@ -575,8 +581,7 @@ outputs:
         - gds-base
         - gds-base-crtools
         - gds-gui-crtools
-        - nds2-client
-        - root_base  # [osx]
+        - root_base
       run:
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - gds-base
@@ -602,6 +607,8 @@ outputs:
 
   - name: dtt-awggui
     build:
+      error_overlinking: true
+      error_overdepending: true
       skip: true  # [osx]
     requirements:
       build:
@@ -609,14 +616,12 @@ outputs:
         - make  # [unix]
         - sysroot_linux-64 2.17  # [linux64]
       host:
-
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - gds-base
         - gds-gui-crtools
         - {{ pin_subpackage('libawg', exact=True) }}
         - {{ pin_subpackage('libtestpoint', exact=True) }}
-        - nds2-client
-        - root_base  # [osx]
+        - root_base
       run:
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - gds-base
@@ -645,6 +650,8 @@ outputs:
 
   - name: dtt-awgstream
     build:
+      error_overlinking: true
+      error_overdepending: true
       skip: true  # [osx]
     requirements:
       build:
@@ -658,7 +665,6 @@ outputs:
         - {{ pin_subpackage('libdtt', exact=True) }}
         - {{ pin_subpackage('libsistr', exact=True) }}
         - {{ pin_subpackage('libtestpoint', exact=True) }}
-        - nds2-client
       run:
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - gds-base
@@ -687,6 +693,8 @@ outputs:
 
   - name: dtt-diag
     build:
+      error_overlinking: true
+      error_overdepending: true
       skip: true  # [osx]
     requirements:
       build:
@@ -695,10 +703,8 @@ outputs:
         - sysroot_linux-64 2.17  # [linux64]
       host:
         - {{ pin_subpackage('libdtt', exact=True) }}
-        - nds2-client
       run:
         - {{ pin_subpackage('libdtt', exact=True) }}
-        - nds2-client
     files:
       - bin/diag
     test:
@@ -719,6 +725,8 @@ outputs:
 
   - name: dtt-diagd
     build:
+      error_overlinking: true
+      error_overdepending: true
       skip: true  # [osx]
     requirements:
       build:
@@ -727,7 +735,6 @@ outputs:
         - sysroot_linux-64 2.17  # [linux64]
       host:
         - {{ pin_subpackage('libdtt', exact=True) }}
-        - nds2-client
       run:
         - {{ pin_subpackage('libdtt', exact=True) }}
     files:
@@ -750,6 +757,8 @@ outputs:
 
   - name: dtt-diaggui
     build:
+      error_overlinking: true
+      error_overdepending: true
       skip: true  # [osx]
     requirements:
       build:
@@ -795,6 +804,8 @@ outputs:
 
   - name: dtt-monitors
     build:
+      error_overlinking: true
+      error_overdepending: true
       skip: true  # [osx]
     requirements:
       build:
@@ -820,6 +831,8 @@ outputs:
 
   - name: dtt-multiawgstream
     build:
+      error_overlinking: true
+      error_overdepending: true
       skip: true  # [osx]
     requirements:
       build:
@@ -831,7 +844,6 @@ outputs:
         - {{ pin_subpackage('libawg', exact=True) }}
         - {{ pin_subpackage('libdtt', exact=True) }}
         - {{ pin_subpackage('libtestpoint', exact=True) }}
-        - nds2-client
       run:
         - gds-base
         - {{ pin_subpackage('libawg', exact=True) }}
@@ -857,6 +869,8 @@ outputs:
 
   - name: dtt-tpcmd
     build:
+      error_overlinking: true
+      error_overdepending: true
       skip: true  # [osx]
     requirements:
       build:
@@ -865,7 +879,6 @@ outputs:
         - sysroot_linux-64 2.17  # [linux64]
       host:
         - {{ pin_subpackage('libtestpoint', exact=True) }}
-        - nds2-client
       run:
         - {{ pin_subpackage('libtestpoint', exact=True) }}
     files:
@@ -887,6 +900,8 @@ outputs:
 
   - name: dtt-xml-tools
     build:
+      error_overlinking: true
+      error_overdepending: true
       skip: true  # [osx]
     requirements:
       build:
@@ -897,7 +912,6 @@ outputs:
         - gds-base
         - {{ pin_subpackage('libdtt', exact=True) }}
         - {{ pin_subpackage('libtestpoint', exact=True) }}
-        - nds2-client
       run:
         - gds-base
         - {{ pin_subpackage('libdtt', exact=True) }}
@@ -925,6 +939,8 @@ outputs:
 
   - name: fantom
     build:
+      error_overlinking: true
+      error_overdepending: true
       skip: true  # [osx]
     requirements:
       build:
@@ -933,7 +949,6 @@ outputs:
         - sysroot_linux-64 2.17  # [linux64]
       host:
         - {{ pin_subpackage('libfantom', exact=True) }}
-        - nds2-client
       run:
         - {{ pin_subpackage('libfantom', exact=True) }}
     files:
@@ -955,6 +970,8 @@ outputs:
 
   - name: foton
     build:
+      error_overlinking: true
+      error_overdepending: true
       skip: true  # [osx]
     requirements:
       build:
@@ -966,7 +983,6 @@ outputs:
         - gds-base
         - {{ pin_subpackage('libfilterfile', exact=True) }}
         - {{ pin_subpackage('libfilterwiz', exact=True) }}
-        - nds2-client
         - root_base  # [osx]
       run:
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
@@ -996,6 +1012,8 @@ outputs:
 
   - name: lidax
     build:
+      error_overlinking: true
+      error_overdepending: true
       skip: true  # [osx]
     requirements:
       build:
@@ -1006,7 +1024,6 @@ outputs:
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - gds-base
         - {{ pin_subpackage('libdfm', exact=True) }}
-        - nds2-client
         - root_base  # [osx]
       run:
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
@@ -1037,16 +1054,14 @@ outputs:
 
   - name: cds-crtools
     build:
+      error_overlinking: true
+      error_overdepending: true
       skip: true  # [osx]
     requirements:
       host:
-        #- nds2-client
-        #- python >=3.8
-        #- root_base
+        - python
       run:
-        #- nds2-client
-        #- python >=3.8
-        #- root_base
+        - python
         # all of the outputs
         - {{ pin_subpackage('chndump', exact=True) }}
         - {{ pin_subpackage('dmtviewer', exact=True) }}
