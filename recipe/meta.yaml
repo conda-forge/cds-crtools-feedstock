@@ -1,5 +1,5 @@
 {% set name = "cds-crtools" %}
-{% set version = "3.1.5_dev4" %}
+{% set version = "3.1.5_dev5" %}
 
 package:
   name: {{ name|lower }}-split
@@ -7,13 +7,13 @@ package:
 
 source:
   url: https://git.ligo.org/cds/software/dtt/-/archive/{{ version }}/{{ version }}.tar.gz
-  sha256: 1483316cf39f2335d1c0144459e7cec35c09fa1bdff38907f0e39f0e16c00ba6
+  sha256: 13412acc15d261b04fbf2ef1c578da1f5dc351fdbc1c6014e74234cccbf20ce2
   patches:
 
 build:
   error_overlinking: true
   error_overdepending: true
-  number: 1
+  number: 0
   skip: true  # [win]
 
 requirements:
@@ -30,8 +30,7 @@ requirements:
     - expat
     - fftw
     - gds-base
-    - gds-base-crtools
-    - gds-gui-crtools  # [not osx]
+    - gds-base-crtools    
     - gds-base-gdstrig  # [not osx]
     - gds-lsmp  # [not osx]
     - gds-root-extensions-crtools  # [not osx]
@@ -250,15 +249,13 @@ outputs:
         - make  # [not win]
         - sysroot_linux-64 2.17  # [linux64]
       host:
-        - crtools-gui-libraries
-        - gds-base
-        - gds-gui-crtools
+        - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
+        - gds-base        
         - {{ pin_subpackage('libfilterfile', exact=True) }}
         - root_base
       run:
-        - crtools-gui-libraries
-        - gds-base
-        - gds-gui-crtools
+        - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
+        - gds-base        
         - {{ pin_subpackage('libfilterfile', exact=True) }}
         - root_base
     files:
@@ -361,15 +358,13 @@ outputs:
         - sysroot_linux-64 2.17  # [linux64]
       host:
         - gds-base
-        - gds-base-crtools
-        - gds-gui-crtools
+        - gds-base-crtools        
         - {{ pin_subpackage('libdfm', exact=True) }}
         - {{ pin_subpackage('libfantom', exact=True) }}
         - root_base
       run:
         - gds-base
-        - gds-base-crtools
-        - gds-gui-crtools
+        - gds-base-crtools        
         - {{ pin_subpackage('libdfm', exact=True) }}
         - {{ pin_subpackage('libfantom', exact=True) }}
         - root_base
@@ -466,8 +461,7 @@ outputs:
         - python                              # [build_platform != target_platform]
       host:
         - gds-base
-        - {{ pin_subpackage('libfilterfile', exact=True) }}
-        - pybind11
+        - {{ pin_subpackage('libfilterfile', exact=True) }}        
         - python
         - scipy
       run:
@@ -512,10 +506,8 @@ outputs:
         # extras for cross-compiling
         - cross-python_{{ target_platform }}  # [build_platform != target_platform]
         - python                              # [build_platform != target_platform]
-      host:
-        - gds-gui-crtools
-        - nds2-client
-        - pybind11
+      host:        
+        - nds2-client        
         - python
         - root_base
       run:
@@ -579,14 +571,12 @@ outputs:
       host:
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - gds-base
-        - gds-base-crtools
-        - gds-gui-crtools
+        - gds-base-crtools        
         - root_base
       run:
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - gds-base
-        - gds-base-crtools
-        - gds-gui-crtools
+        - gds-base-crtools        
         - root_base
     files:
       - bin/dmtviewer
@@ -617,15 +607,13 @@ outputs:
         - sysroot_linux-64 2.17  # [linux64]
       host:
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
-        - gds-base
-        - gds-gui-crtools
+        - gds-base        
         - {{ pin_subpackage('libawg', exact=True) }}
         - {{ pin_subpackage('libtestpoint', exact=True) }}
         - root_base
       run:
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
-        - gds-base
-        - gds-gui-crtools
+        - gds-base        
         - {{ pin_subpackage('libawg', exact=True) }}
         - {{ pin_subpackage('libtestpoint', exact=True) }}
         - root_base
@@ -766,8 +754,7 @@ outputs:
         - make  # [unix]
         - sysroot_linux-64 2.17  # [linux64]
       host:
-        - gds-base
-        - gds-gui-crtools
+        - gds-base        
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - {{ pin_subpackage('libdfm', exact=True) }}
         - {{ pin_subpackage('libdtt', exact=True) }}
@@ -775,8 +762,7 @@ outputs:
         - nds2-client
         - root_base  # [osx]
       run:
-        - gds-base
-        - gds-gui-crtools
+        - gds-base        
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - {{ pin_subpackage('libdfm', exact=True) }}
         - {{ pin_subpackage('libdtt', exact=True) }}
