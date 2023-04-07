@@ -13,7 +13,7 @@ source:
 build:
   error_overlinking: true
   error_overdepending: true
-  number: 0
+  number: 1
   skip: true  # [win]
 
 requirements:
@@ -883,6 +883,7 @@ outputs:
       summary: Command line tool for manipulating test points using LIGO's awgtpman.
       description: |
         Close and open test points on LIGO's real-time data acquisition system
+conda update --prefix /build/jenkins/home/mambaforge/envs/buildenvs anaconda
 
   - name: dtt-xml-tools
     build:
