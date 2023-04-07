@@ -1,5 +1,5 @@
 {% set name = "cds-crtools" %}
-{% set version = "3.1.5_dev5" %}
+{% set version = "3.1.5_dev6" %}
 
 package:
   name: {{ name|lower }}-split
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://git.ligo.org/cds/software/dtt/-/archive/{{ version }}/{{ version }}.tar.gz
-  sha256: 13412acc15d261b04fbf2ef1c578da1f5dc351fdbc1c6014e74234cccbf20ce2
+  sha256: 8c4fcebf1770574c2c3be281fe119485a1ce632f49d555c90508d9b5f1a890be
   patches:
 
 build:
