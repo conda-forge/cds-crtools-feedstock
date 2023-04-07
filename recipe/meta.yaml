@@ -66,8 +66,8 @@ outputs:
       commands:
         - test -f ${PREFIX}/lib/libawg${SHLIB_EXT}  # [unix]
     about:
-      home: https://git.ligo.org/cds/dtt
-      dev_url: https://git.ligo.org/cds/dtt.git
+      home: https://git.ligo.org/cds/software/dtt
+      dev_url: https://git.ligo.org/cds/software/dtt.git
       license: GPL-2.0-or-later
       license_family: GPL
       license_file:
@@ -112,8 +112,8 @@ outputs:
       commands:
         - test -f ${PREFIX}/lib/libdfm${SHLIB_EXT}  # [unix]
     about:
-      home: https://git.ligo.org/cds/dtt
-      dev_url: https://git.ligo.org/cds/dtt.git
+      home: https://git.ligo.org/cds/software/dtt
+      dev_url: https://git.ligo.org/cds/software/dtt.git
       license: GPL-2.0-or-later
       license_family: GPL
       license_file:
@@ -160,8 +160,8 @@ outputs:
       commands:
         - test -f ${PREFIX}/lib/libdtt${SHLIB_EXT}  # [unix]
     about:
-      home: https://git.ligo.org/cds/dtt
-      dev_url: https://git.ligo.org/cds/dtt.git
+      home: https://git.ligo.org/cds/software/dtt
+      dev_url: https://git.ligo.org/cds/software/dtt.git
       license: GPL-2.0-or-later
       license_family: GPL
       license_file:
@@ -197,8 +197,8 @@ outputs:
       commands:
         - test -f ${PREFIX}/lib/libfantom${SHLIB_EXT}  # [unix]
     about:
-      home: https://git.ligo.org/cds/dtt
-      dev_url: https://git.ligo.org/cds/dtt.git
+      home: https://git.ligo.org/cds/software/dtt
+      dev_url: https://git.ligo.org/cds/software/dtt.git
       license: GPL-2.0-or-later
       license_family: GPL
       license_file:
@@ -226,8 +226,8 @@ outputs:
       commands:
         - test -f ${PREFIX}/lib/libfilterfile.so  # [unix]
     about:
-      home: https://git.ligo.org/cds/dtt
-      dev_url: https://git.ligo.org/cds/dtt.git
+      home: https://git.ligo.org/cds/software/dtt
+      dev_url: https://git.ligo.org/cds/software/dtt.git
       license: GPL-2.0-or-later
       license_family: GPL
       license_file:
@@ -265,8 +265,8 @@ outputs:
       commands:
         - test -f ${PREFIX}/lib/libfilterwiz${SHLIB_EXT}  # [unix]
     about:
-      home: https://git.ligo.org/cds/dtt
-      dev_url: https://git.ligo.org/cds/dtt.git
+      home: https://git.ligo.org/cds/software/dtt
+      dev_url: https://git.ligo.org/cds/software/dtt.git
       license: GPL-2.0-or-later
       license_family: GPL
       license_file:
@@ -302,8 +302,8 @@ outputs:
       commands:
         - test -f ${PREFIX}/lib/libSIStr${SHLIB_EXT}  # [unix]
     about:
-      home: https://git.ligo.org/cds/dtt
-      dev_url: https://git.ligo.org/cds/dtt.git
+      home: https://git.ligo.org/cds/software/dtt
+      dev_url: https://git.ligo.org/cds/software/dtt.git
       license: GPL-2.0-or-later
       license_family: GPL
       license_file:
@@ -334,8 +334,8 @@ outputs:
       commands:
         - test -f ${PREFIX}/lib/libtestpoint${SHLIB_EXT}  # [unix]
     about:
-      home: https://git.ligo.org/cds/dtt
-      dev_url: https://git.ligo.org/cds/dtt.git
+      home: https://git.ligo.org/cds/software/dtt
+      dev_url: https://git.ligo.org/cds/software/dtt.git
       license: GPL-2.0-or-later
       license_family: GPL
       license_file:
@@ -388,8 +388,8 @@ outputs:
         - test -f ${PREFIX}/lib/libdfmgui${SHLIB_EXT}  # [unix]
         - test -f ${PREFIX}/lib/libdttgui${SHLIB_EXT}  # [unix]
     about:
-      home: https://git.ligo.org/cds/dtt
-      dev_url: https://git.ligo.org/cds/dtt.git
+      home: https://git.ligo.org/cds/software/dtt
+      dev_url: https://git.ligo.org/cds/software/dtt.git
       license: GPL-2.0-or-later
       license_family: GPL
       license_file:
@@ -430,8 +430,8 @@ outputs:
         - test -f ${PREFIX}/lib/libRdttgui${SHLIB_EXT}  # [unix]
         - root -b -l -x -q -e 'gSystem->Load("libRdttgui");'  # [linux]
     about:
-      home: https://git.ligo.org/cds/dtt
-      dev_url: https://git.ligo.org/cds/dtt.git
+      home: https://git.ligo.org/cds/software/dtt
+      dev_url: https://git.ligo.org/cds/software/dtt.git
       license: GPL-2.0-or-later
       license_family: GPL
       license_file:
@@ -479,8 +479,8 @@ outputs:
         - (cd src/python/foton/; python pyfilterfile_test.py)
         - (cd src/python/foton/; python foton_unit_test.py)
     about:
-      home: https://git.ligo.org/cds/dtt
-      dev_url: https://git.ligo.org/cds/dtt.git
+      home: https://git.ligo.org/cds/software/dtt
+      dev_url: https://git.ligo.org/cds/software/dtt.git
       license: GPL-2.0-or-later
       license_family: GPL
       license_file:
@@ -522,8 +522,8 @@ outputs:
       imports:
         - awg
     about:
-      home: https://git.ligo.org/cds/dtt
-      dev_url: https://git.ligo.org/cds/dtt.git
+      home: https://git.ligo.org/cds/software/dtt
+      dev_url: https://git.ligo.org/cds/software/dtt.git
       license: GPL-2.0-or-later
       license_family: GPL
       license_file:
@@ -584,8 +584,8 @@ outputs:
       commands:
         - dmtviewer -h
     about:
-      home: https://git.ligo.org/cds/dtt
-      dev_url: https://git.ligo.org/cds/dtt.git
+      home: https://git.ligo.org/cds/software/dtt
+      dev_url: https://git.ligo.org/cds/software/dtt.git
       license: GPL-2.0-or-later
       license_family: GPL
       license_file:
@@ -623,8 +623,8 @@ outputs:
       commands:
         - awggui -h
     about:
-      home: https://git.ligo.org/cds/dtt
-      dev_url: https://git.ligo.org/cds/dtt.git
+      home: https://git.ligo.org/cds/software/dtt
+      dev_url: https://git.ligo.org/cds/software/dtt.git
       license: GPL-2.0-or-later
       license_family: GPL
       license_file:
@@ -668,8 +668,8 @@ outputs:
         - awgstream
         - awgexc_run || test $? -eq 1  # [unix]
     about:
-      home: https://git.ligo.org/cds/dtt
-      dev_url: https://git.ligo.org/cds/dtt.git
+      home: https://git.ligo.org/cds/software/dtt
+      dev_url: https://git.ligo.org/cds/software/dtt.git
       license: GPL-2.0-or-later
       license_family: GPL
       license_file:
@@ -699,8 +699,8 @@ outputs:
       commands:
         - diag -help
     about:
-      home: https://git.ligo.org/cds/dtt
-      dev_url: https://git.ligo.org/cds/dtt.git
+      home: https://git.ligo.org/cds/software/dtt
+      dev_url: https://git.ligo.org/cds/software/dtt.git
       license: GPL-2.0-or-later
       license_family: GPL
       license_file:
@@ -731,8 +731,8 @@ outputs:
       commands:
         - test -x ${PREFIX}/bin/diagd  # [unix]
     about:
-      home: https://git.ligo.org/cds/dtt
-      dev_url: https://git.ligo.org/cds/dtt.git
+      home: https://git.ligo.org/cds/software/dtt
+      dev_url: https://git.ligo.org/cds/software/dtt.git
       license: GPL-2.0-or-later
       license_family: GPL
       license_file:
@@ -775,8 +775,8 @@ outputs:
       commands:
         - diaggui -h
     about:
-      home: https://git.ligo.org/cds/dtt
-      dev_url: https://git.ligo.org/cds/dtt.git
+      home: https://git.ligo.org/cds/software/dtt
+      dev_url: https://git.ligo.org/cds/software/dtt.git
       license: GPL-2.0-or-later
       license_family: GPL
       license_file:
@@ -804,8 +804,8 @@ outputs:
       commands:
         - echo -e "10 1e-21\n50 1e-22\n100 1e-23\n200 1e-22" | InspiralRange 4000
     about:
-      home: https://git.ligo.org/cds/dtt
-      dev_url: https://git.ligo.org/cds/dtt.git
+      home: https://git.ligo.org/cds/software/dtt
+      dev_url: https://git.ligo.org/cds/software/dtt.git
       license: GPL-2.0-or-later
       license_family: GPL
       license_file:
@@ -841,8 +841,8 @@ outputs:
       commands:
         - multiawgstream
     about:
-      home: https://git.ligo.org/cds/dtt
-      dev_url: https://git.ligo.org/cds/dtt.git
+      home: https://git.ligo.org/cds/software/dtt
+      dev_url: https://git.ligo.org/cds/software/dtt.git
       license: GPL-2.0-or-later
       license_family: GPL
       license_file:
@@ -873,8 +873,8 @@ outputs:
       commands:
         - tpcmd -h || test $? -eq 1  # [unix]
     about:
-      home: https://git.ligo.org/cds/dtt
-      dev_url: https://git.ligo.org/cds/dtt.git
+      home: https://git.ligo.org/cds/software/dtt
+      dev_url: https://git.ligo.org/cds/software/dtt.git
       license: GPL-2.0-or-later
       license_family: GPL
       license_file:
@@ -883,7 +883,7 @@ outputs:
       summary: Command line tool for manipulating test points using LIGO's awgtpman.
       description: |
         Close and open test points on LIGO's real-time data acquisition system
-conda update --prefix /build/jenkins/home/mambaforge/envs/buildenvs anaconda
+        conda update --prefix /build/jenkins/home/mambaforge/envs/buildenvs anaconda
 
   - name: dtt-xml-tools
     build:
@@ -913,8 +913,8 @@ conda update --prefix /build/jenkins/home/mambaforge/envs/buildenvs anaconda
         - xmldata -h
         - xmldir -h
     about:
-      home: https://git.ligo.org/cds/dtt
-      dev_url: https://git.ligo.org/cds/dtt.git
+      home: https://git.ligo.org/cds/software/dtt
+      dev_url: https://git.ligo.org/cds/software/dtt.git
       license: GPL-2.0-or-later
       license_family: GPL
       license_file:
@@ -944,8 +944,8 @@ conda update --prefix /build/jenkins/home/mambaforge/envs/buildenvs anaconda
       commands:
         - fantom -h || test $? -eq 1  # [unix]
     about:
-      home: https://git.ligo.org/cds/dtt
-      dev_url: https://git.ligo.org/cds/dtt.git
+      home: https://git.ligo.org/cds/software/dtt
+      dev_url: https://git.ligo.org/cds/software/dtt.git
       license: GPL-2.0-or-later
       license_family: GPL
       license_file:
@@ -983,8 +983,8 @@ conda update --prefix /build/jenkins/home/mambaforge/envs/buildenvs anaconda
       commands:
         - foton -h
     about:
-      home: https://git.ligo.org/cds/dtt
-      dev_url: https://git.ligo.org/cds/dtt.git
+      home: https://git.ligo.org/cds/software/dtt
+      dev_url: https://git.ligo.org/cds/software/dtt.git
       license: GPL-2.0-or-later
       license_family: GPL
       license_file:
@@ -1026,8 +1026,8 @@ conda update --prefix /build/jenkins/home/mambaforge/envs/buildenvs anaconda
         - lidax -H NDSSERVER
         - udnls -h
     about:
-      home: https://git.ligo.org/cds/dtt
-      dev_url: https://git.ligo.org/cds/dtt.git
+      home: https://git.ligo.org/cds/software/dtt
+      dev_url: https://git.ligo.org/cds/software/dtt.git
       license: GPL-2.0-or-later
       license_family: GPL
       license_file:
@@ -1069,8 +1069,8 @@ conda update --prefix /build/jenkins/home/mambaforge/envs/buildenvs anaconda
         - diaggui -h
         - foton -h
     about:
-      home: https://git.ligo.org/cds/dtt
-      dev_url: https://git.ligo.org/cds/dtt.git
+      home: https://git.ligo.org/cds/software/dtt
+      dev_url: https://git.ligo.org/cds/software/dtt.git
       license: GPL-2.0-or-later
       license_family: GPL
       license_file:
@@ -1084,8 +1084,8 @@ conda update --prefix /build/jenkins/home/mambaforge/envs/buildenvs anaconda
         along with `foton`, the filter design program, and others.
 
 about:
-  home: https://git.ligo.org/cds/dtt
-  dev_url: https://git.ligo.org/cds/dtt.git
+  home: https://git.ligo.org/cds/software/dtt
+  dev_url: https://git.ligo.org/cds/software/dtt.git
   license: GPL-2.0-or-later
   license_family: GPL
   license_file:
