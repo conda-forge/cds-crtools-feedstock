@@ -1,7 +1,11 @@
 __migrator:
   build_number: 1
   kind: version
-  migration_number: 1  
+  migration_number: 1
+  ordering:
+    root_base:
+        -6.28.0
+        -6.26.10
 root_base:
-- 6.26.10
 - 6.28.0
+- 6.26.10
