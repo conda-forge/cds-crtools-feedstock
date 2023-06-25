@@ -1,5 +1,5 @@
 {% set name = "cds-crtools" %}
-{% set version = "4.0.0" %}
+{% set version = "4.0.1" %}
 
 package:
   name: {{ name|lower }}-split
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://git.ligo.org/cds/software/dtt/-/archive/{{ version }}/{{ version }}.tar.gz
-  sha256: 7d925b0ecaeb313252a4e8488f9ff10d6cfce12b1936d6d82d83e02be8c955ed
+  sha256: 3c01438bbe11fb886fed192941acbe01c38b1638a9b16510dd4707ccfb37bc2a
   patches:
 
 build:
@@ -30,7 +30,7 @@ requirements:
     - expat
     - fftw
     - gds-base
-    - gds-base-crtools    
+    - gds-base-crtools
     - gds-base-gdstrig  # [not osx]
     - gds-lsmp  # [not osx]
     - gds-root-extensions-crtools  # [not osx]
@@ -250,12 +250,12 @@ outputs:
         - sysroot_linux-64 2.17  # [linux64]
       host:
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
-        - gds-base        
+        - gds-base
         - {{ pin_subpackage('libfilterfile', exact=True) }}
         - root_base
       run:
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
-        - gds-base        
+        - gds-base
         - {{ pin_subpackage('libfilterfile', exact=True) }}
         - root_base
     files:
@@ -358,13 +358,13 @@ outputs:
         - sysroot_linux-64 2.17  # [linux64]
       host:
         - gds-base
-        - gds-base-crtools        
+        - gds-base-crtools
         - {{ pin_subpackage('libdfm', exact=True) }}
         - {{ pin_subpackage('libfantom', exact=True) }}
         - root_base
       run:
         - gds-base
-        - gds-base-crtools        
+        - gds-base-crtools
         - {{ pin_subpackage('libdfm', exact=True) }}
         - {{ pin_subpackage('libfantom', exact=True) }}
         - root_base
@@ -461,7 +461,7 @@ outputs:
         - python                              # [build_platform != target_platform]
       host:
         - gds-base
-        - {{ pin_subpackage('libfilterfile', exact=True) }}        
+        - {{ pin_subpackage('libfilterfile', exact=True) }}
         - python
         - scipy
       run:
@@ -506,8 +506,8 @@ outputs:
         # extras for cross-compiling
         - cross-python_{{ target_platform }}  # [build_platform != target_platform]
         - python                              # [build_platform != target_platform]
-      host:        
-        - nds2-client        
+      host:
+        - nds2-client
         - python
         - root_base
       run:
@@ -571,12 +571,12 @@ outputs:
       host:
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - gds-base
-        - gds-base-crtools        
+        - gds-base-crtools
         - root_base
       run:
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - gds-base
-        - gds-base-crtools        
+        - gds-base-crtools
         - root_base
     files:
       - bin/dmtviewer
@@ -607,13 +607,13 @@ outputs:
         - sysroot_linux-64 2.17  # [linux64]
       host:
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
-        - gds-base        
+        - gds-base
         - {{ pin_subpackage('libawg', exact=True) }}
         - {{ pin_subpackage('libtestpoint', exact=True) }}
         - root_base
       run:
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
-        - gds-base        
+        - gds-base
         - {{ pin_subpackage('libawg', exact=True) }}
         - {{ pin_subpackage('libtestpoint', exact=True) }}
         - root_base
@@ -754,7 +754,7 @@ outputs:
         - make  # [unix]
         - sysroot_linux-64 2.17  # [linux64]
       host:
-        - gds-base        
+        - gds-base
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - {{ pin_subpackage('libdfm', exact=True) }}
         - {{ pin_subpackage('libdtt', exact=True) }}
@@ -762,7 +762,7 @@ outputs:
         - nds2-client
         - root_base  # [osx]
       run:
-        - gds-base        
+        - gds-base
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - {{ pin_subpackage('libdfm', exact=True) }}
         - {{ pin_subpackage('libdtt', exact=True) }}
