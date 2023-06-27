@@ -13,7 +13,7 @@ source:
 build:
   error_overlinking: true
   error_overdepending: true
-  number: 1
+  number: 2
   skip: true  # [win]
 
 requirements:
@@ -653,6 +653,7 @@ outputs:
         - {{ pin_subpackage('libdtt', exact=True) }}
         - {{ pin_subpackage('libsistr', exact=True) }}
         - {{ pin_subpackage('libtestpoint', exact=True) }}
+        - root_base
       run:
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - gds-base
@@ -660,6 +661,7 @@ outputs:
         - {{ pin_subpackage('libdtt', exact=True) }}
         - {{ pin_subpackage('libsistr', exact=True) }}
         - {{ pin_subpackage('libtestpoint', exact=True) }}
+        - root_base
     files:
       - bin/awgstream
       - bin/awgexc_run
@@ -760,7 +762,7 @@ outputs:
         - {{ pin_subpackage('libdtt', exact=True) }}
         - {{ pin_subpackage('libfantom', exact=True) }}
         - nds2-client
-        - root_base  # [osx]
+        - root_base
       run:
         - gds-base        
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
@@ -970,7 +972,7 @@ outputs:
         - gds-base
         - {{ pin_subpackage('libfilterfile', exact=True) }}
         - {{ pin_subpackage('libfilterwiz', exact=True) }}
-        - root_base  # [osx]
+        - root_base
       run:
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - gds-base
@@ -1011,7 +1013,7 @@ outputs:
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - gds-base
         - {{ pin_subpackage('libdfm', exact=True) }}
-        - root_base  # [osx]
+        - root_base
       run:
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - gds-base
@@ -1047,6 +1049,7 @@ outputs:
     requirements:
       host:
         - python
+        - root_base
       run:
         - python
         # all of the outputs
