@@ -647,21 +647,21 @@ outputs:
         - make  # [unix]
         - sysroot_linux-64 2.17  # [linux64]
       host:
-        - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
+        #- {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - gds-base
         - {{ pin_subpackage('libawg', exact=True) }}
         - {{ pin_subpackage('libdtt', exact=True) }}
         - {{ pin_subpackage('libsistr', exact=True) }}
         - {{ pin_subpackage('libtestpoint', exact=True) }}
-        - root_base
+        #- root_base
       run:
-        - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
+        #- {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - gds-base
         - {{ pin_subpackage('libawg', exact=True) }}
         - {{ pin_subpackage('libdtt', exact=True) }}
         - {{ pin_subpackage('libsistr', exact=True) }}
         - {{ pin_subpackage('libtestpoint', exact=True) }}
-        - root_base
+        #- root_base
     files:
       - bin/awgstream
       - bin/awgexc_run
