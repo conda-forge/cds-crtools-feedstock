@@ -8,11 +8,17 @@ jobs:
     vmImage: macOS-11
   strategy:
     matrix:
-      osx_64_:
-        CONFIG: osx_64_
+      osx_64_root_base6.26:
+        CONFIG: osx_64_root_base6.26
         UPLOAD_PACKAGES: 'True'
-      osx_arm64_:
-        CONFIG: osx_arm64_
+      osx_64_root_base6.28:
+        CONFIG: osx_64_root_base6.28
+        UPLOAD_PACKAGES: 'True'
+      osx_arm64_root_base6.26:
+        CONFIG: osx_arm64_root_base6.26
+        UPLOAD_PACKAGES: 'True'
+      osx_arm64_root_base6.28:
+        CONFIG: osx_arm64_root_base6.28
         UPLOAD_PACKAGES: 'True'
   timeoutInMinutes: 360
 
