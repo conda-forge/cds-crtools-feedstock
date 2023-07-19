@@ -17,3 +17,4 @@ python_impl:
     - cpython
     - cpython
     - cpython
+krb5: 1.19
