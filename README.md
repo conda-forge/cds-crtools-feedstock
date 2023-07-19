@@ -161,6 +161,21 @@ Development: https://git.ligo.org/cds/software/dtt.git
 The gui libraries provide basic widgets to control room tools apps.
 
 
+About dtt-multiawgstream
+------------------------
+
+Home: https://git.ligo.org/cds/software/dtt
+
+Package license: GPL-2.0-or-later
+
+Summary: Stream multiple arbitrary data sets as excitations using LIGO's awgtpman.
+
+Development: https://git.ligo.org/cds/software/dtt.git
+
+Stream arbitrary data to multiple exciatation channels at once on
+LIGO's real-time data acquisition system.
+
+
 About libdtt
 ------------
 
@@ -292,21 +307,6 @@ Development: https://git.ligo.org/cds/software/dtt.git
 `diaggui` is a user interface for running diagnostics tests, creating
 excitations, calculating results on LIGO's real time system data
 acquisition system.
-
-
-About dtt-multiawgstream
-------------------------
-
-Home: https://git.ligo.org/cds/software/dtt
-
-Package license: GPL-2.0-or-later
-
-Summary: Stream multiple arbitrary data sets as excitations using LIGO's awgtpman.
-
-Development: https://git.ligo.org/cds/software/dtt.git
-
-Stream arbitrary data to multiple exciatation channels at once on
-LIGO's real-time data acquisition system.
 
 
 About dtt-xml-tools
