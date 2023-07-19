@@ -143,6 +143,7 @@ outputs:
         - {{ pin_subpackage('libtestpoint', exact=True) }}
         - nds2-client
         - readline
+        - krb5
       run:
         - gds-base
         - gds-base-crtools
