@@ -1,7 +1,9 @@
 python:    
+    - 3.8.* *_cpython
     - 3.9.* *_cpython
     - 3.10.* *_cpython
     - 3.11.* *_cpython
+    - 3.8.* *_cpython
     - 3.9.* *_cpython
     - 3.10.* *_cpython
     - 3.11.* *_cpython
@@ -9,7 +11,9 @@ root_base:
     - 6.26
     - 6.26
     - 6.26
+    - 6.26
     - 6.28    
+    - 6.28
     - 6.28
     - 6.28
 zip_keys:
@@ -24,6 +28,8 @@ numpy:
     - 1.21    
     - 1.21
     - 1.21
+    - 1.21
+    - 1.21
 python_impl:
     - cpython
     - cpython
@@ -31,4 +37,5 @@ python_impl:
     - cpython
     - cpython
     - cpython
-nds2-client: 0.16.8
+    - cpython
+    - cpython
