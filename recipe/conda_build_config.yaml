@@ -1,17 +1,17 @@
 python:    
-    - 3.8.* *_cpython
-    - 3.9.* *_cpython
-    - 3.10.* *_cpython
-    - 3.11.* *_cpython
+    - 3.8.* *_cpython  # [not osx]
+    - 3.9.* *_cpython  # [not osx]
+    - 3.10.* *_cpython  # [not osx]
+    - 3.11.* *_cpython  # [not osx]
     - 3.8.* *_cpython
     - 3.9.* *_cpython
     - 3.10.* *_cpython
     - 3.11.* *_cpython
 root_base:    
-    - 6.26
-    - 6.26
-    - 6.26
-    - 6.26
+    - 6.26  # [not osx]
+    - 6.26  # [not osx]
+    - 6.26  # [not osx]
+    - 6.26  # [not osx]
     - 6.28    
     - 6.28
     - 6.28
@@ -22,19 +22,19 @@ zip_keys:
     - python    
     - root_base
 numpy:
-    - 1.21    
-    - 1.21
-    - 1.21
-    - 1.21    
+    - 1.21  # [not osx]
+    - 1.21  # [not osx]
+    - 1.21  # [not osx]
+    - 1.21  # [not osx]
     - 1.21
     - 1.21
     - 1.21
     - 1.21
 python_impl:
-    - cpython
-    - cpython
-    - cpython
-    - cpython
+    - cpython  # [not osx]
+    - cpython  # [not osx]
+    - cpython  # [not osx]
+    - cpython  # [not osx]
     - cpython
     - cpython
     - cpython
