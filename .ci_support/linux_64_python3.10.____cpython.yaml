@@ -18,8 +18,6 @@ expat:
 - '2'
 fftw:
 - '3'
-krb5:
-- '1.19'
 numpy:
 - '1.21'
 pin_run_as_build:
