@@ -133,6 +133,7 @@ outputs:
         - {{ compiler('cxx') }}
         - make  # [unix]
         - sysroot_linux-64 2.17  # [linux64]
+        - krb5
       host:
         - expat
         - gds-base
