@@ -549,9 +549,9 @@ outputs:
         - {{ compiler('c') }}
         - make  # [unix]
         - sysroot_linux-64 2.17  # [linux64]
-        - krb5 {{ krb5 }}
       host:
         - {{ pin_subpackage('libdtt', exact=True) }}
+        - krb5 {{ krb5 }}
       run:
         - {{ pin_subpackage('libdtt', exact=True) }}
     files:
@@ -692,9 +692,9 @@ outputs:
         - {{ compiler('cxx') }}
         - make  # [unix]
         - sysroot_linux-64 2.17  # [linux64]
-        - krb5 {{ krb5 }}
       host:
         - {{ pin_subpackage('libdtt', exact=True) }}
+        - krb5 {{ krb5 }}
       run:
         - {{ pin_subpackage('libdtt', exact=True) }}
     files:
@@ -725,9 +725,9 @@ outputs:
         - {{ compiler('cxx') }}
         - make  # [unix]
         - sysroot_linux-64 2.17  # [linux64]
-        - krb5 {{ krb5 }}
       host:
         - {{ pin_subpackage('libdtt', exact=True) }}
+        - krb5 {{ krb5 }}
       run:
         - {{ pin_subpackage('libdtt', exact=True) }}
     files:
@@ -758,7 +758,6 @@ outputs:
         - {{ compiler('cxx') }}
         - make  # [unix]
         - sysroot_linux-64 2.17  # [linux64]
-        - krb5 {{ krb5 }}
       host:
         - gds-base        
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
@@ -767,6 +766,7 @@ outputs:
         - {{ pin_subpackage('libfantom', exact=True) }}
         - nds2-client
         - root_base
+        - krb5 {{ krb5 }}
       run:
         - gds-base        
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
@@ -899,11 +899,11 @@ outputs:
         - {{ compiler('cxx') }}
         - make  # [unix]
         - sysroot_linux-64 2.17  # [linux64]
-        - krb5 {{ krb5 }}
       host:
         - gds-base
         - {{ pin_subpackage('libdtt', exact=True) }}
         - {{ pin_subpackage('libtestpoint', exact=True) }}
+        - krb5 {{ krb5 }}
       run:
         - gds-base
         - {{ pin_subpackage('libdtt', exact=True) }}
