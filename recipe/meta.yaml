@@ -549,6 +549,7 @@ outputs:
         - {{ compiler('c') }}
         - make  # [unix]
         - sysroot_linux-64 2.17  # [linux64]
+        - krb5 {{ krb5 }}
       host:
         - {{ pin_subpackage('libdtt', exact=True) }}
       run:
@@ -691,6 +692,7 @@ outputs:
         - {{ compiler('cxx') }}
         - make  # [unix]
         - sysroot_linux-64 2.17  # [linux64]
+        - krb5 {{ krb5 }}
       host:
         - {{ pin_subpackage('libdtt', exact=True) }}
       run:
@@ -723,6 +725,7 @@ outputs:
         - {{ compiler('cxx') }}
         - make  # [unix]
         - sysroot_linux-64 2.17  # [linux64]
+        - krb5 {{ krb5 }}
       host:
         - {{ pin_subpackage('libdtt', exact=True) }}
       run:
@@ -755,6 +758,7 @@ outputs:
         - {{ compiler('cxx') }}
         - make  # [unix]
         - sysroot_linux-64 2.17  # [linux64]
+        - krb5 {{ krb5 }}
       host:
         - gds-base        
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
@@ -895,6 +899,7 @@ outputs:
         - {{ compiler('cxx') }}
         - make  # [unix]
         - sysroot_linux-64 2.17  # [linux64]
+        - krb5 {{ krb5 }}
       host:
         - gds-base
         - {{ pin_subpackage('libdtt', exact=True) }}
