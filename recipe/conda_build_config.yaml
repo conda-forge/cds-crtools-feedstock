@@ -1,0 +1,23 @@
+python:
+    - 3.8.* *_cpython
+    - 3.9.* *_cpython
+    - 3.10.* *_cpython
+    - 3.11.* *_cpython
+zip_keys:
+    - numpy
+    - python_impl
+    - python
+root_base:
+    - 6.26  # [not osx]
+    - 6.28  # [not linux64]
+numpy:
+    - 1.21
+    - 1.21
+    - 1.21
+    - 1.21
+python_impl:
+    - cpython
+    - cpython
+    - cpython
+    - cpython
+krb5: 1.19
