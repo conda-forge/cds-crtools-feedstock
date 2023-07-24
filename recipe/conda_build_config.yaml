@@ -7,9 +7,6 @@ zip_keys:
     - numpy
     - python_impl
     - python
-root_base:
-    - 6.26  # [not osx]
-    - 6.28  # [not linux64]
 numpy:
     - 1.21
     - 1.21
