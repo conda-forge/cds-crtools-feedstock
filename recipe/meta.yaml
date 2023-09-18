@@ -13,7 +13,7 @@ source:
 build:
   error_overlinking: true
   error_overdepending: false
-  number: 3
+  number: 4
   skip: true  # [win]
 
 requirements:
