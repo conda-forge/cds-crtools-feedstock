@@ -8,12 +8,11 @@ package:
 source:
   url: https://git.ligo.org/cds/software/dtt/-/archive/{{ version }}/{{ version }}.tar.gz
   sha256: 0892acaec86d6e60d9324050d53884f4d2d5e060da000b334fac627f22694c6a
-  patches:
 
 build:
   error_overlinking: true
-  error_overdepending: false
-  number: 3
+  error_overdepending: true
+  number: 4
   skip: true  # [win]
 
 requirements:
@@ -23,9 +22,7 @@ requirements:
     - cmake
     - make  # [not win]
     - pkg-config  # [not win]
-    - python
     - sysroot_linux-64 2.17  # [linux64]
-    - krb5 {{ krb5 }}  # [linux64]
   host:
     - cyrus-sasl
     - expat
@@ -144,7 +141,6 @@ outputs:
         - {{ pin_subpackage('libtestpoint', exact=True) }}
         - nds2-client
         - readline
-        - krb5 {{ krb5 }}
       run:
         - gds-base
         - gds-base-crtools
@@ -551,7 +547,6 @@ outputs:
         - sysroot_linux-64 2.17  # [linux64]
       host:
         - {{ pin_subpackage('libdtt', exact=True) }}
-        - krb5 {{ krb5 }}
       run:
         - {{ pin_subpackage('libdtt', exact=True) }}
     files:
@@ -694,7 +689,6 @@ outputs:
         - sysroot_linux-64 2.17  # [linux64]
       host:
         - {{ pin_subpackage('libdtt', exact=True) }}
-        - krb5 {{ krb5 }}
       run:
         - {{ pin_subpackage('libdtt', exact=True) }}
     files:
@@ -727,7 +721,6 @@ outputs:
         - sysroot_linux-64 2.17  # [linux64]
       host:
         - {{ pin_subpackage('libdtt', exact=True) }}
-        - krb5 {{ krb5 }}
       run:
         - {{ pin_subpackage('libdtt', exact=True) }}
     files:
@@ -766,7 +759,6 @@ outputs:
         - {{ pin_subpackage('libfantom', exact=True) }}
         - nds2-client
         - root_base
-        - krb5 {{ krb5 }}
       run:
         - gds-base        
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
@@ -903,7 +895,6 @@ outputs:
         - gds-base
         - {{ pin_subpackage('libdtt', exact=True) }}
         - {{ pin_subpackage('libtestpoint', exact=True) }}
-        - krb5 {{ krb5 }}
       run:
         - gds-base
         - {{ pin_subpackage('libdtt', exact=True) }}
