@@ -10,9 +10,9 @@ source:
   sha256: f325085296e6153c28d81f6347b6e301a8f7f0d534b1e025db7e423a9394c8b4
 
 build:
-  error_overlinking: true
-  error_overdepending: true
-  number: 6
+  error_overlinking: false
+  error_overdepending: false
+  number: 1
   skip: true  # [win]
 
 requirements:
