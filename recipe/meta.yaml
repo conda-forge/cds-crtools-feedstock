@@ -1,5 +1,5 @@
 {% set name = "cds-crtools" %}
-{% set version = "4.0.3" %}
+{% set version = "4.0.2" %}
 
 package:
   name: {{ name|lower }}-split
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://git.ligo.org/cds/software/dtt/-/archive/{{ version }}/{{ version }}.tar.gz
-  sha256: f325085296e6153c28d81f6347b6e301a8f7f0d534b1e025db7e423a9394c8b4
+  sha256: 0892acaec86d6e60d9324050d53884f4d2d5e060da000b334fac627f22694c6a
 
 build:
   error_overlinking: true
   error_overdepending: true
-  number: 2
+  number: 6
   skip: true  # [win]
 
 requirements:
@@ -93,7 +93,7 @@ outputs:
       run:
         - gds-base
         - {{ pin_subpackage('libfantom', exact=True) }}
-        # - {{ pin_subpackage('libtestpoint', exact=True) }}
+        - {{ pin_subpackage('libtestpoint', exact=True) }}
     files:
       - include/gds/dfm/dataacc.hh
       - include/gds/dfm/dfm.hh
