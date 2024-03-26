@@ -46,7 +46,7 @@ outputs:
       skip: true  # [osx]
     requirements:
       build:
-        - {{ compiler('cxx') }}
+        - {{ compiler('c') }}
         - make  # [unix]
         - sysroot_linux-64 2.17  # [linux64]
       host:
@@ -57,7 +57,6 @@ outputs:
         - {{ pin_subpackage('libtestpoint', exact=True) }}
     files:
       - include/gds/dtt/awg*.h
-      - include/gds/dtt/excitation.hh
       - include/gds/dtt/gdsrand.h
       - lib/libawg{{ SHLIB_EXT }}*
     test:
@@ -318,7 +317,7 @@ outputs:
       skip: true  # [osx]
     requirements:
       build:
-        - {{ compiler('cxx') }}
+        - {{ compiler('c') }}
         - make  # [unix]
         - sysroot_linux-64 2.17  # [linux64]
       host:
