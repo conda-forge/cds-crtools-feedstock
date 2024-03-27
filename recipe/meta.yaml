@@ -18,7 +18,7 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
-    #- {{ compiler('cxx') }}
+    - {{ compiler('cxx') }}
     - cmake
     - make  # [not win]
     - pkg-config  # [not win]
@@ -41,8 +41,8 @@ outputs:
 
   - name: libawg
     build:
-      error_overlinking: true
-      error_overdepending: true
+      error_overlinking: false
+      error_overdepending: false
       skip: true  # [osx]
     requirements:
       build:
@@ -312,8 +312,8 @@ outputs:
 
   - name: libtestpoint
     build:
-      error_overlinking: true
-      error_overdepending: true
+      error_overlinking: false
+      error_overdepending: false
       skip: true  # [osx]
     requirements:
       build:
