@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://git.ligo.org/cds/software/dtt/-/archive/{{ version }}/{{ version }}.tar.gz
-  sha256: 603e85572f84d6f860b5c21af6fd06623064fef50ba4ffed8db07cc5e0e6b590
+  sha256: cc1e9f1ab20ba781ca1773bc1e182ffde6edffbde1dbfd7f6ff9901c8b388216
 
 build:
   error_overlinking: true
@@ -18,7 +18,7 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
+    #- {{ compiler('cxx') }}
     - cmake
     - make  # [not win]
     - pkg-config  # [not win]
