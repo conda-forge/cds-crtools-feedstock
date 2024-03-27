@@ -1,5 +1,5 @@
 {% set name = "cds-crtools" %}
-{% set version = "4.1.0" %}
+{% set version = "4.1.1" %}
 
 package:
   name: {{ name|lower }}-split
