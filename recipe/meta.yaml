@@ -893,12 +893,10 @@ outputs:
       host:
         - gds-base
         - {{ pin_subpackage('libdtt', exact=True) }}
-        - {{ pin_subpackage('libtestpoint', exact=True) }}
       run:
         - gds-base
         - {{ pin_subpackage('libdtt', exact=True) }}
-        - {{ pin_subpackage('libtestpoint', exact=True) }}
-    files:
+      files:
       - bin/xmlconv
       - bin/xmldata
       - bin/xmldir
