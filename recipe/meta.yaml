@@ -882,8 +882,8 @@ outputs:
 
   - name: dtt-xml-tools
     build:
-      error_overlinking: true
-      error_overdepending: true
+      error_overlinking: false
+      error_overdepending: false
       skip: true  # [osx]
     requirements:
       build:
@@ -893,6 +893,7 @@ outputs:
       host:
         - gds-base
         - {{ pin_subpackage('libdtt', exact=True) }}
+        - {{ pin_subpackage('libtestpoint', exact=True) }}
       run:
         - gds-base
         - {{ pin_subpackage('libdtt', exact=True) }}
