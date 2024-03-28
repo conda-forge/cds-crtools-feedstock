@@ -899,9 +899,9 @@ outputs:
         - {{ pin_subpackage('libdtt', exact=True) }}
         - {{ pin_subpackage('libtestpoint', exact=True) }}
       files:
-      - bin/xmlconv
-      - bin/xmldata
-      - bin/xmldir
+        - bin/xmlconv
+        - bin/xmldata
+        - bin/xmldir
     test:
       commands:
         - xmlconv -h
