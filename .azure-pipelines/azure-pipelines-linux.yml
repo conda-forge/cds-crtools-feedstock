@@ -8,8 +8,8 @@ jobs:
     vmImage: ubuntu-latest
   strategy:
     matrix:
-      linux_64_root_base6.28.10:
-        CONFIG: linux_64_root_base6.28.10
+      linux_64_root_base6.28.0:
+        CONFIG: linux_64_root_base6.28.0
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
   timeoutInMinutes: 360
