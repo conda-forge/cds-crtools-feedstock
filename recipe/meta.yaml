@@ -12,17 +12,17 @@ source:
 build:
   error_overlinking: true
   error_overdepending: true
-  number: 1
+  number: 2
   skip: true  # [win]
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     - cmake
     - make  # [not win]
     - pkg-config  # [not win]
-    - sysroot_linux-64 2.17  # [linux64]
   host:
     - cyrus-sasl
     - expat
@@ -47,8 +47,8 @@ outputs:
     requirements:
       build:
         - {{ compiler('c') }}
+        - {{ stdlib("c") }}
         - make  # [unix]
-        - sysroot_linux-64 2.17  # [linux64]
       host:
         - gds-base
         - {{ pin_subpackage('libtestpoint', exact=True) }}
@@ -83,8 +83,8 @@ outputs:
     requirements:
       build:
         - {{ compiler('cxx') }}
+        - {{ stdlib("c") }}
         - make  # [unix]
-        - sysroot_linux-64 2.17  # [linux64]
       host:
         - gds-base
         - {{ pin_subpackage('libfantom', exact=True) }}
@@ -128,8 +128,8 @@ outputs:
     requirements:
       build:
         - {{ compiler('cxx') }}
+        - {{ stdlib("c") }}
         - make  # [unix]
-        - sysroot_linux-64 2.17  # [linux64]
       host:
         - expat
         - gds-base
@@ -177,8 +177,8 @@ outputs:
     requirements:
       build:
         - {{ compiler('cxx') }}
+        - {{ stdlib("c") }}
         - make  # [unix]
-        - sysroot_linux-64 2.17  # [linux64]
       host:
         - gds-base
         - gds-lsmp
@@ -210,8 +210,8 @@ outputs:
     requirements:
       build:
         - {{ compiler('cxx') }}
+        - {{ stdlib("c") }}
         - make  # [unix]
-        - sysroot_linux-64 2.17  # [linux64]
       host:
         - gds-base
       run:
@@ -243,8 +243,8 @@ outputs:
     requirements:
       build:
         - {{ compiler('cxx') }}
+        - {{ stdlib("c") }}
         - make  # [not win]
-        - sysroot_linux-64 2.17  # [linux64]
       host:
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - gds-base
@@ -282,8 +282,8 @@ outputs:
     requirements:
       build:
         - {{ compiler('c') }}
+        - {{ stdlib("c") }}
         - make  # [unix]
-        - sysroot_linux-64 2.17  # [linux64]
       host:
         - gds-base
         - {{ pin_subpackage('libawg', exact=True) }}
@@ -318,8 +318,8 @@ outputs:
     requirements:
       build:
         - {{ compiler('cxx') }}
+        - {{ stdlib("c") }}
         - make  # [unix]
-        - sysroot_linux-64 2.17  # [linux64]
       host:
         - gds-base
       run:
@@ -351,8 +351,8 @@ outputs:
     requirements:
       build:
         - {{ compiler('cxx') }}
+        - {{ stdlib("c") }}
         - make  # [unix]
-        - sysroot_linux-64 2.17  # [linux64]
       host:
         - gds-base
         - gds-base-crtools
@@ -404,8 +404,8 @@ outputs:
     requirements:
       build:
         - {{ compiler('cxx') }}
+        - {{ stdlib("c") }}
         - make  # [unix]
-        - sysroot_linux-64 2.17  # [linux64]
       host:
         - gds-base
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
@@ -448,11 +448,11 @@ outputs:
     requirements:
       build:
         - {{ compiler('c') }}
+        - {{ stdlib("c") }}
         - {{ compiler('cxx') }}
         - cmake
         - make  # [unix]
         - pkg-config
-        - sysroot_linux-64 2.17  # [linux64]
         # extras for cross-compiling
         - cross-python_{{ target_platform }}  # [build_platform != target_platform]
         - python                              # [build_platform != target_platform]
@@ -499,7 +499,7 @@ outputs:
         - cmake
         - make  # [unix]
         - pkg-config
-        - sysroot_linux-64 2.17  # [linux64]
+        - {{ stdlib("c") }}
         # extras for cross-compiling
         - cross-python_{{ target_platform }}  # [build_platform != target_platform]
         - python                              # [build_platform != target_platform]
@@ -542,8 +542,8 @@ outputs:
     requirements:
       build:
         - {{ compiler('c') }}
+        - {{ stdlib("c") }}
         - make  # [unix]
-        - sysroot_linux-64 2.17  # [linux64]
       host:
         - {{ pin_subpackage('libdtt', exact=True) }}
       run:
@@ -563,8 +563,8 @@ outputs:
     requirements:
       build:
         - {{ compiler('cxx') }}
+        - {{ stdlib("c") }}
         - make  # [unix]
-        - sysroot_linux-64 2.17  # [linux64]
       host:
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - gds-base
@@ -600,8 +600,8 @@ outputs:
     requirements:
       build:
         - {{ compiler('cxx') }}
+        - {{ stdlib("c") }}
         - make  # [unix]
-        - sysroot_linux-64 2.17  # [linux64]
       host:
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - gds-base
@@ -641,8 +641,8 @@ outputs:
     requirements:
       build:
         - {{ compiler('c') }}
+        - {{ stdlib("c") }}
         - make  # [unix]
-        - sysroot_linux-64 2.17  # [linux64]
       host:
         #- {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - gds-base
@@ -684,8 +684,8 @@ outputs:
     requirements:
       build:
         - {{ compiler('cxx') }}
+        - {{ stdlib("c") }}
         - make  # [unix]
-        - sysroot_linux-64 2.17  # [linux64]
       host:
         - {{ pin_subpackage('libdtt', exact=True) }}
       run:
@@ -716,8 +716,8 @@ outputs:
     requirements:
       build:
         - {{ compiler('cxx') }}
+        - {{ stdlib("c") }}
         - make  # [unix]
-        - sysroot_linux-64 2.17  # [linux64]
       host:
         - {{ pin_subpackage('libdtt', exact=True) }}
       run:
@@ -748,8 +748,8 @@ outputs:
     requirements:
       build:
         - {{ compiler('cxx') }}
+        - {{ stdlib("c") }}
         - make  # [unix]
-        - sysroot_linux-64 2.17  # [linux64]
       host:
         - gds-base
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
@@ -793,8 +793,8 @@ outputs:
     requirements:
       build:
         - {{ compiler('cxx') }}
+        - {{ stdlib("c") }}
         - make  # [unix]
-        - sysroot_linux-64 2.17  # [linux64]
     files:
       - bin/InspiralRange
     test:
@@ -820,8 +820,8 @@ outputs:
     requirements:
       build:
         - {{ compiler('c') }}
+        - {{ stdlib("c") }}
         - make  # [unix]
-        - sysroot_linux-64 2.17  # [linux64]
       host:
         - gds-base
         - {{ pin_subpackage('libawg', exact=True) }}
@@ -856,8 +856,8 @@ outputs:
     requirements:
       build:
         - {{ compiler('c') }}
+        - {{ stdlib("c") }}
         - make  # [unix]
-        - sysroot_linux-64 2.17  # [linux64]
       host:
         - {{ pin_subpackage('libtestpoint', exact=True) }}
       run:
@@ -888,8 +888,8 @@ outputs:
     requirements:
       build:
         - {{ compiler('cxx') }}
+        - {{ stdlib("c") }}
         - make  # [unix]
-        - sysroot_linux-64 2.17  # [linux64]
       host:
         - gds-base
         - {{ pin_subpackage('libdtt', exact=True) }}
@@ -925,8 +925,8 @@ outputs:
     requirements:
       build:
         - {{ compiler('c') }}
+        - {{ stdlib("c") }}
         - make  # [unix]
-        - sysroot_linux-64 2.17  # [linux64]
       host:
         - {{ pin_subpackage('libfantom', exact=True) }}
       run:
@@ -956,8 +956,8 @@ outputs:
     requirements:
       build:
         - {{ compiler('cxx') }}
+        - {{ stdlib("c") }}
         - make  # [unix]
-        - sysroot_linux-64 2.17  # [linux64]
       host:
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - gds-base
@@ -998,8 +998,8 @@ outputs:
     requirements:
       build:
         - {{ compiler('cxx') }}
+        - {{ stdlib("c") }}
         - make  # [unix]
-        - sysroot_linux-64 2.17  # [linux64]
       host:
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - gds-base
