@@ -1,5 +1,5 @@
 {% set name = "cds-crtools" %}
-{% set version = "4.1.3" %}
+{% set version = "4.1.4" %}
 
 package:
   name: {{ name|lower }}-split
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://git.ligo.org/cds/software/dtt/-/archive/{{ version }}/{{ version }}.tar.gz
-  sha256: bf7cb08b333b3b3aad840782e3153ebe232c74b64545d7625e3a3855dc5822e4
+  sha256: bb935ae3442d06f05aa706ad518bcce6f0b591ad8003fd5001c54bc307734c43
 
 build:
   error_overlinking: true
