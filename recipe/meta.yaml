@@ -19,6 +19,7 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - {{ stdlib("c") }}
     - cmake
     - make  # [not win]
     - pkg-config  # [not win]
@@ -47,6 +48,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('c') }}
+        - {{ stdlib("c") }}
         - make  # [unix]
         - sysroot_linux-64 2.17  # [linux64]
       host:
@@ -83,6 +85,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('cxx') }}
+        - {{ stdlib("c") }}
         - make  # [unix]
         - sysroot_linux-64 2.17  # [linux64]
       host:
@@ -128,6 +131,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('cxx') }}
+        - {{ stdlib("c") }}
         - make  # [unix]
         - sysroot_linux-64 2.17  # [linux64]
       host:
@@ -177,6 +181,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('cxx') }}
+        - {{ stdlib("c") }}
         - make  # [unix]
         - sysroot_linux-64 2.17  # [linux64]
       host:
@@ -210,6 +215,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('cxx') }}
+        - {{ stdlib("c") }}
         - make  # [unix]
         - sysroot_linux-64 2.17  # [linux64]
       host:
@@ -243,6 +249,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('cxx') }}
+        - {{ stdlib("c") }}
         - make  # [not win]
         - sysroot_linux-64 2.17  # [linux64]
       host:
@@ -282,6 +289,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('c') }}
+        - {{ stdlib("c") }}
         - make  # [unix]
         - sysroot_linux-64 2.17  # [linux64]
       host:
@@ -318,6 +326,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('cxx') }}
+        - {{ stdlib("c") }}
         - make  # [unix]
         - sysroot_linux-64 2.17  # [linux64]
       host:
@@ -351,6 +360,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('cxx') }}
+        - {{ stdlib("c") }}
         - make  # [unix]
         - sysroot_linux-64 2.17  # [linux64]
       host:
@@ -404,6 +414,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('cxx') }}
+        - {{ stdlib("c") }}
         - make  # [unix]
         - sysroot_linux-64 2.17  # [linux64]
       host:
@@ -449,6 +460,7 @@ outputs:
       build:
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
+        - {{ stdlib("c") }}
         - cmake
         - make  # [unix]
         - pkg-config
@@ -503,6 +515,7 @@ outputs:
         # extras for cross-compiling
         - cross-python_{{ target_platform }}  # [build_platform != target_platform]
         - python                              # [build_platform != target_platform]
+        - {{ stdlib("c") }}
       host:
         - nds2-client
         - python
@@ -542,6 +555,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('c') }}
+        - {{ stdlib("c") }}
         - make  # [unix]
         - sysroot_linux-64 2.17  # [linux64]
       host:
@@ -563,6 +577,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('cxx') }}
+        - {{ stdlib("c") }}
         - make  # [unix]
         - sysroot_linux-64 2.17  # [linux64]
       host:
@@ -600,6 +615,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('cxx') }}
+        - {{ stdlib("c") }}
         - make  # [unix]
         - sysroot_linux-64 2.17  # [linux64]
       host:
@@ -641,6 +657,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('c') }}
+        - {{ stdlib("c") }}
         - make  # [unix]
         - sysroot_linux-64 2.17  # [linux64]
       host:
@@ -684,6 +701,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('cxx') }}
+        - {{ stdlib("c") }}
         - make  # [unix]
         - sysroot_linux-64 2.17  # [linux64]
       host:
@@ -716,6 +734,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('cxx') }}
+        - {{ stdlib("c") }}
         - make  # [unix]
         - sysroot_linux-64 2.17  # [linux64]
       host:
@@ -748,6 +767,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('cxx') }}
+        - {{ stdlib("c") }}
         - make  # [unix]
         - sysroot_linux-64 2.17  # [linux64]
       host:
@@ -793,6 +813,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('cxx') }}
+        - {{ stdlib("c") }}
         - make  # [unix]
         - sysroot_linux-64 2.17  # [linux64]
     files:
@@ -820,6 +841,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('c') }}
+        - {{ stdlib("c") }}
         - make  # [unix]
         - sysroot_linux-64 2.17  # [linux64]
       host:
@@ -856,6 +878,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('c') }}
+        - {{ stdlib("c") }}
         - make  # [unix]
         - sysroot_linux-64 2.17  # [linux64]
       host:
@@ -888,6 +911,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('cxx') }}
+        - {{ stdlib("c") }}
         - make  # [unix]
         - sysroot_linux-64 2.17  # [linux64]
       host:
@@ -925,6 +949,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('c') }}
+        - {{ stdlib("c") }}
         - make  # [unix]
         - sysroot_linux-64 2.17  # [linux64]
       host:
@@ -956,6 +981,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('cxx') }}
+        - {{ stdlib("c") }}
         - make  # [unix]
         - sysroot_linux-64 2.17  # [linux64]
       host:
@@ -998,6 +1024,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('cxx') }}
+        - {{ stdlib("c") }}
         - make  # [unix]
         - sysroot_linux-64 2.17  # [linux64]
       host:
