@@ -18,6 +18,7 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     - {{ stdlib("c") }}
     - cmake
@@ -47,6 +48,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('c') }}
+        - {{ stdlib("c") }}
         - {{ stdlib("c") }}
         - make  # [unix]
       host:
@@ -83,6 +85,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('cxx') }}
+        - {{ stdlib("c") }}
         - {{ stdlib("c") }}
         - make  # [unix]
       host:
@@ -128,6 +131,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('cxx') }}
+        - {{ stdlib("c") }}
         - {{ stdlib("c") }}
         - make  # [unix]
       host:
@@ -178,6 +182,7 @@ outputs:
       build:
         - {{ compiler('cxx') }}
         - {{ stdlib("c") }}
+        - {{ stdlib("c") }}
         - make  # [unix]
       host:
         - gds-base
@@ -211,6 +216,7 @@ outputs:
       build:
         - {{ compiler('cxx') }}
         - {{ stdlib("c") }}
+        - {{ stdlib("c") }}
         - make  # [unix]
       host:
         - gds-base
@@ -243,6 +249,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('cxx') }}
+        - {{ stdlib("c") }}
         - {{ stdlib("c") }}
         - make  # [not win]
       host:
@@ -283,6 +290,7 @@ outputs:
       build:
         - {{ compiler('c') }}
         - {{ stdlib("c") }}
+        - {{ stdlib("c") }}
         - make  # [unix]
       host:
         - gds-base
@@ -319,6 +327,7 @@ outputs:
       build:
         - {{ compiler('cxx') }}
         - {{ stdlib("c") }}
+        - {{ stdlib("c") }}
         - make  # [unix]
       host:
         - gds-base
@@ -351,6 +360,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('cxx') }}
+        - {{ stdlib("c") }}
         - {{ stdlib("c") }}
         - make  # [unix]
       host:
@@ -405,6 +415,7 @@ outputs:
       build:
         - {{ compiler('cxx') }}
         - {{ stdlib("c") }}
+        - {{ stdlib("c") }}
         - make  # [unix]
       host:
         - gds-base
@@ -448,6 +459,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('c') }}
+        - {{ stdlib("c") }}
         - {{ compiler('cxx') }}
         - {{ stdlib("c") }}
         - cmake
@@ -542,6 +554,7 @@ outputs:
       build:
         - {{ compiler('c') }}
         - {{ stdlib("c") }}
+        - {{ stdlib("c") }}
         - make  # [unix]
       host:
         - {{ pin_subpackage('libdtt', exact=True) }}
@@ -562,6 +575,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('cxx') }}
+        - {{ stdlib("c") }}
         - {{ stdlib("c") }}
         - make  # [unix]
       host:
@@ -599,6 +613,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('cxx') }}
+        - {{ stdlib("c") }}
         - {{ stdlib("c") }}
         - make  # [unix]
       host:
@@ -640,6 +655,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('c') }}
+        - {{ stdlib("c") }}
         - {{ stdlib("c") }}
         - make  # [unix]
       host:
@@ -684,6 +700,7 @@ outputs:
       build:
         - {{ compiler('cxx') }}
         - {{ stdlib("c") }}
+        - {{ stdlib("c") }}
         - make  # [unix]
       host:
         - {{ pin_subpackage('libdtt', exact=True) }}
@@ -716,6 +733,7 @@ outputs:
       build:
         - {{ compiler('cxx') }}
         - {{ stdlib("c") }}
+        - {{ stdlib("c") }}
         - make  # [unix]
       host:
         - {{ pin_subpackage('libdtt', exact=True) }}
@@ -747,6 +765,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('cxx') }}
+        - {{ stdlib("c") }}
         - {{ stdlib("c") }}
         - make  # [unix]
       host:
@@ -793,6 +812,7 @@ outputs:
       build:
         - {{ compiler('cxx') }}
         - {{ stdlib("c") }}
+        - {{ stdlib("c") }}
         - make  # [unix]
     files:
       - bin/InspiralRange
@@ -819,6 +839,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('c') }}
+        - {{ stdlib("c") }}
         - {{ stdlib("c") }}
         - make  # [unix]
       host:
@@ -856,6 +877,7 @@ outputs:
       build:
         - {{ compiler('c') }}
         - {{ stdlib("c") }}
+        - {{ stdlib("c") }}
         - make  # [unix]
       host:
         - {{ pin_subpackage('libtestpoint', exact=True) }}
@@ -887,6 +909,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('cxx') }}
+        - {{ stdlib("c") }}
         - {{ stdlib("c") }}
         - make  # [unix]
       host:
@@ -925,6 +948,7 @@ outputs:
       build:
         - {{ compiler('c') }}
         - {{ stdlib("c") }}
+        - {{ stdlib("c") }}
         - make  # [unix]
       host:
         - {{ pin_subpackage('libfantom', exact=True) }}
@@ -955,6 +979,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('cxx') }}
+        - {{ stdlib("c") }}
         - {{ stdlib("c") }}
         - make  # [unix]
       host:
@@ -997,6 +1022,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('cxx') }}
+        - {{ stdlib("c") }}
         - {{ stdlib("c") }}
         - make  # [unix]
       host:
