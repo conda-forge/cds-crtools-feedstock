@@ -438,6 +438,7 @@ outputs:
     build:
       ignore_run_exports:
         - numpy
+      skip: true  # [py == 312 and root_base == '6.30.4']
     requirements:
       build:
         - {{ compiler('c') }}
@@ -486,6 +487,7 @@ outputs:
     build:
       error_overlinking: true
       skip: true  # [osx]
+      skip: true  # [py == 312 and root_base == '6.30.4']
     requirements:
       build:
         - cmake
@@ -1013,6 +1015,7 @@ outputs:
     build:
       error_overlinking: true
       skip: true  # [osx]
+      skip: true  # [py == 312 and root_base == '6.30.4']
     requirements:
       host:
         - python
