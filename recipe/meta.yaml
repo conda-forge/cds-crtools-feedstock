@@ -8,6 +8,9 @@ package:
 source:
   url: https://git.ligo.org/cds/software/dtt/-/archive/{{ version }}/{{ version }}.tar.gz
   sha256: bb935ae3442d06f05aa706ad518bcce6f0b591ad8003fd5001c54bc307734c43
+  patches:
+    # backport https://git.ligo.org/cds/software/dtt/-/merge_requests/39
+    - 0001-fix-use-of-unittest.TestCase.assertEquals.patch
 
 build:
   error_overlinking: true

@@ -1,0 +1,41 @@
+From c426dce094f726ed4ed9fc29f1b1a3c14c0af4ff Mon Sep 17 00:00:00 2001
+From: Duncan Macleod <macleoddm@cardiff.ac.uk>
+Date: Wed, 18 Sep 2024 18:05:22 +0100
+Subject: [PATCH] fix use of unittest.TestCase.assertEquals
+
+this was deprecated in Python 3.2
+---
+ src/python/foton/pydmtsigp_test.py | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/src/python/foton/pydmtsigp_test.py b/src/python/foton/pydmtsigp_test.py
+index 078e731..511209d 100755
+--- a/src/python/foton/pydmtsigp_test.py
++++ b/src/python/foton/pydmtsigp_test.py
+@@ -743,18 +743,18 @@ class TestFotonMethods(unittest.TestCase):
+         self.assertTrue(sigp.isiir(self.iir_filter))
+ 
+     def test_iirsoscount(self):
+-        self.assertEquals(sigp.iirsoscount(self.iir_filter), 1)
++        self.assertEqual(sigp.iirsoscount(self.iir_filter), 1)
+ 
+     def test_iirpolecount(self):
+-        self.assertEquals(sigp.iirpolecount(self.iir_filter), 1)
++        self.assertEqual(sigp.iirpolecount(self.iir_filter), 1)
+ 
+     def test_iirzerocount(self):
+-        self.assertEquals(sigp.iirzerocount(self.iir_filter), 1)
++        self.assertEqual(sigp.iirzerocount(self.iir_filter), 1)
+ 
+     def test_iirpolezerocount(self):
+         poles, zeros = sigp.iirpolezerocount(self.iir_filter)
+-        self.assertEquals(poles, 1)
+-        self.assertEquals(zeros, 1)
++        self.assertEqual(poles, 1)
++        self.assertEqual(zeros, 1)
+ 
+     def test_iirorder(self):
+         print(f"iirorder={sigp.iirorder(self.iir_filter)}")
+-- 
+2.39.2
+
