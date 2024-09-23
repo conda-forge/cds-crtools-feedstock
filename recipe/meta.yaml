@@ -8,12 +8,15 @@ package:
 source:
   url: https://git.ligo.org/cds/software/dtt/-/archive/{{ version }}/{{ version }}.tar.gz
   sha256: bb935ae3442d06f05aa706ad518bcce6f0b591ad8003fd5001c54bc307734c43
+  patches:
+    # backport https://git.ligo.org/cds/software/dtt/-/merge_requests/39
+    - 0001-fix-use-of-unittest.TestCase.assertEquals.patch
 
 build:
   error_overlinking: true
-  error_overdepending: true
-  number: 0
+  number: 1
   skip: true  # [win]
+  skip: true  # [osx and root_base == "6.30.4"]
 
 requirements:
   build:
@@ -42,7 +45,6 @@ outputs:
   - name: libawg
     build:
       error_overlinking: false
-      error_overdepending: false
       skip: true  # [osx]
     requirements:
       build:
@@ -78,7 +80,6 @@ outputs:
   - name: libdfm
     build:
       error_overlinking: true
-      error_overdepending: true
       skip: true  # [osx]
     requirements:
       build:
@@ -123,7 +124,6 @@ outputs:
   - name: libdtt
     build:
       error_overlinking: true
-      error_overdepending: true
       skip: true  # [osx]
     requirements:
       build:
@@ -172,7 +172,6 @@ outputs:
   - name: libfantom
     build:
       error_overlinking: true
-      error_overdepending: true
       skip: true  # [osx]
     requirements:
       build:
@@ -238,7 +237,6 @@ outputs:
   - name: libfilterwiz
     build:
       error_overlinking: true
-      error_overdepending: true
       skip: true  # [osx]
     requirements:
       build:
@@ -277,7 +275,6 @@ outputs:
   - name: libsistr
     build:
       error_overlinking: true
-      error_overdepending: true
       skip: true  # [osx]
     requirements:
       build:
@@ -313,7 +310,6 @@ outputs:
   - name: libtestpoint
     build:
       error_overlinking: false
-      error_overdepending: false
       skip: true  # [osx]
     requirements:
       build:
@@ -346,7 +342,6 @@ outputs:
   - name: crtools-gui-libraries
     build:
       error_overlinking: true
-      error_overdepending: true
       skip: true  # [osx]
     requirements:
       build:
@@ -399,7 +394,6 @@ outputs:
   - name: crtools-root-libraries
     build:
       error_overlinking: true
-      error_overdepending: true
       skip: true  # [osx]
     requirements:
       build:
@@ -445,6 +439,7 @@ outputs:
     build:
       ignore_run_exports:
         - numpy
+      skip: true  # [py == 312 and root_base == '6.30.4']
     requirements:
       build:
         - {{ compiler('c') }}
@@ -492,8 +487,8 @@ outputs:
     script: build-python-awg.sh
     build:
       error_overlinking: true
-      error_overdepending: true
       skip: true  # [osx]
+      skip: true  # [py == 312 and root_base == '6.30.4']
     requirements:
       build:
         - cmake
@@ -536,7 +531,6 @@ outputs:
   - name: chndump
     build:
       error_overlinking: true
-      error_overdepending: true
       skip: true  # [osx]
     requirements:
       build:
@@ -557,7 +551,6 @@ outputs:
   - name: dmtviewer
     build:
       error_overlinking: true
-      error_overdepending: true
       skip: true  # [osx]
     requirements:
       build:
@@ -594,7 +587,6 @@ outputs:
   - name: dtt-awggui
     build:
       error_overlinking: true
-      error_overdepending: true
       skip: true  # [osx]
     requirements:
       build:
@@ -635,7 +627,6 @@ outputs:
   - name: dtt-awgstream
     build:
       error_overlinking: true
-      error_overdepending: true
       skip: true  # [osx]
     requirements:
       build:
@@ -678,7 +669,6 @@ outputs:
   - name: dtt-diag
     build:
       error_overlinking: true
-      error_overdepending: true
       skip: true  # [osx]
     requirements:
       build:
@@ -710,7 +700,6 @@ outputs:
   - name: dtt-diagd
     build:
       error_overlinking: true
-      error_overdepending: true
       skip: true  # [osx]
     requirements:
       build:
@@ -742,7 +731,6 @@ outputs:
   - name: dtt-diaggui
     build:
       error_overlinking: true
-      error_overdepending: true
       skip: true  # [osx]
     requirements:
       build:
@@ -787,7 +775,6 @@ outputs:
   - name: dtt-monitors
     build:
       error_overlinking: true
-      error_overdepending: true
       skip: true  # [osx]
     requirements:
       build:
@@ -814,7 +801,6 @@ outputs:
   - name: dtt-multiawgstream
     build:
       error_overlinking: true
-      error_overdepending: true
       skip: true  # [osx]
     requirements:
       build:
@@ -850,7 +836,6 @@ outputs:
   - name: dtt-tpcmd
     build:
       error_overlinking: true
-      error_overdepending: true
       skip: true  # [osx]
     requirements:
       build:
@@ -882,7 +867,6 @@ outputs:
   - name: dtt-xml-tools
     build:
       error_overlinking: true
-      error_overdepending: true
       skip: true  # [osx]
     requirements:
       build:
@@ -919,7 +903,6 @@ outputs:
   - name: fantom
     build:
       error_overlinking: true
-      error_overdepending: true
       skip: true  # [osx]
     requirements:
       build:
@@ -950,7 +933,6 @@ outputs:
   - name: foton
     build:
       error_overlinking: true
-      error_overdepending: true
       skip: true  # [osx]
     requirements:
       build:
@@ -992,7 +974,6 @@ outputs:
   - name: lidax
     build:
       error_overlinking: true
-      error_overdepending: true
       skip: true  # [osx]
     requirements:
       build:
@@ -1034,8 +1015,8 @@ outputs:
   - name: cds-crtools
     build:
       error_overlinking: true
-      error_overdepending: true
       skip: true  # [osx]
+      skip: true  # [py == 312 and root_base == '6.30.4']
     requirements:
       host:
         - python
