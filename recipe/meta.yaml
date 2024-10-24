@@ -15,8 +15,8 @@ source:
 build:
   error_overlinking: true
   number: 3
+  skip: true  # [osx and arm64]
   skip: true  # [win]
-  skip: true  # [osx and root_base == "6.30.4"]
 
 requirements:
   build:
