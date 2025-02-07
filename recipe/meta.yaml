@@ -14,7 +14,7 @@ source:
 
 build:
   error_overlinking: true
-  number: 3
+  number: 4
   skip: true  # [osx and arm64]
   skip: true  # [win]
 
