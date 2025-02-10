@@ -35,6 +35,7 @@ requirements:
     - gds-base-gdstrig  # [not osx]
     - gds-lsmp  # [not osx]
     - gds-root-extensions-crtools  # [not osx]
+    - liblzma-devel
     - nds2-client  # [not osx]
     - readline
     - root_base
