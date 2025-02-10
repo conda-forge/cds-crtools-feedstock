@@ -14,8 +14,7 @@ source:
 
 build:
   error_overlinking: true
-  number: 3
-  skip: true  # [osx and arm64]
+  number: 4
   skip: true  # [win]
 
 requirements:
@@ -35,6 +34,7 @@ requirements:
     - gds-base-gdstrig  # [not osx]
     - gds-lsmp  # [not osx]
     - gds-root-extensions-crtools  # [not osx]
+    - liblzma-devel
     - nds2-client  # [not osx]
     - readline
     - root_base
