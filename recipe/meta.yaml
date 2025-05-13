@@ -14,7 +14,7 @@ source:
 
 build:
   error_overlinking: true
-  number: 6
+  number: 7
   skip: true  # [win]
 
 requirements:
@@ -1060,7 +1060,7 @@ outputs:
 about:
   home: https://git.ligo.org/cds/software/dtt
   dev_url: https://git.ligo.org/cds/software/dtt.git
-  license: GPL-2.0-or-later
+  license: GPL-3.0-or-later
   license_family: GPL
   license_file:
     - COPYING
