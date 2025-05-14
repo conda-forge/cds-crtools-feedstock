@@ -9,7 +9,7 @@ About cds-crtools
 
 Home: https://git.ligo.org/cds/software/dtt
 
-Package license: GPL-2.0-or-later
+Package license: GPL-3.0-or-later
 
 Summary: CDS Control Room tools
 
@@ -431,6 +431,34 @@ Current build status
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=14511&branchName=main">
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cds-crtools-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_root_base6.34.4" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>linux_aarch64_root_base6.32.10</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=14511&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cds-crtools-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_root_base6.32.10" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>linux_aarch64_root_base6.34.4</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=14511&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cds-crtools-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_root_base6.34.4" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>linux_ppc64le_root_base6.32.10</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=14511&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cds-crtools-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_root_base6.32.10" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>linux_ppc64le_root_base6.34.4</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=14511&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cds-crtools-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_root_base6.34.4" alt="variant">
                 </a>
               </td>
             </tr><tr>
