@@ -9,7 +9,7 @@ About cds-crtools
 
 Home: https://git.ligo.org/cds/software/dtt
 
-Package license: GPL-2.0-or-later
+Package license: GPL-3.0-or-later
 
 Summary: CDS Control Room tools
 
