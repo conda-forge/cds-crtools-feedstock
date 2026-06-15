@@ -15,6 +15,36 @@ Summary: CDS Control Room tools
 
 Development: https://git.ligo.org/cds/software/dtt.git
 
+About libfilterfile
+-------------------
+
+Home: https://git.ligo.org/cds/software/dtt
+
+Package license: GPL-2.0-or-later
+
+Summary: C++ library for manipulating foton filter files.
+
+Development: https://git.ligo.org/cds/software/dtt.git
+
+`libfilterfile` is an interface for reading and writing foton filter files,
+used at LIGO to encode filter coefficients.
+
+
+About python-foton
+------------------
+
+Home: https://git.ligo.org/cds/software/dtt
+
+Package license: GPL-2.0-or-later
+
+Summary: Python bindings for foton functions
+
+Development: https://git.ligo.org/cds/software/dtt.git
+
+Library for design, inspection and manipulation of filters and
+LIGO style filter files.
+
+
 About cds-crtools
 -----------------
 
@@ -298,21 +328,6 @@ Development: https://git.ligo.org/cds/software/dtt.git
 translating data frames and NDS data.
 
 
-About libfilterfile
--------------------
-
-Home: https://git.ligo.org/cds/software/dtt
-
-Package license: GPL-2.0-or-later
-
-Summary: C++ library for manipulating foton filter files.
-
-Development: https://git.ligo.org/cds/software/dtt.git
-
-`libfilterfile` is an interface for reading and writing foton filter files,
-used at LIGO to encode filter coefficients.
-
-
 About libfilterwiz
 ------------------
 
@@ -387,21 +402,6 @@ The awg module allows simple python scripting of excitations
 on the LIGO data acquisition system.
 
 
-About python-foton
-------------------
-
-Home: https://git.ligo.org/cds/software/dtt
-
-Package license: GPL-2.0-or-later
-
-Summary: Python bindings for foton functions
-
-Development: https://git.ligo.org/cds/software/dtt.git
-
-Library for design, inspection and manipulation of filters and
-LIGO style filter files.
-
-
 Current build status
 ====================
 
@@ -420,45 +420,45 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_64_root_base6.34.10</td>
+              <td>linux_64_root_base6.36.8</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=14511&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cds-crtools-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_root_base6.34.10" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cds-crtools-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_root_base6.36.8" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_root_base6.36.04</td>
+              <td>linux_64_root_base6.38.0</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=14511&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cds-crtools-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_root_base6.36.04" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cds-crtools-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_root_base6.38.0" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64_root_base6.34.10</td>
+              <td>osx_64_root_base6.36.8</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=14511&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cds-crtools-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_root_base6.34.10" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cds-crtools-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_root_base6.36.8" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64_root_base6.36.04</td>
+              <td>osx_64_root_base6.38.0</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=14511&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cds-crtools-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_root_base6.36.04" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cds-crtools-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_root_base6.38.0" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_arm64_root_base6.34.10</td>
+              <td>osx_arm64_root_base6.36.8</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=14511&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cds-crtools-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_root_base6.34.10" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cds-crtools-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_root_base6.36.8" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_arm64_root_base6.36.04</td>
+              <td>osx_arm64_root_base6.38.0</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=14511&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cds-crtools-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_root_base6.36.04" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cds-crtools-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_root_base6.38.0" alt="variant">
                 </a>
               </td>
             </tr>
