@@ -12,9 +12,8 @@ BUILD_DIR="src/python/awg"
 
 # configure
 cmake \
+	${CMAKE_ARGS} \
 	${SRC_DIR} \
-	-DCMAKE_BUILD_TYPE:STRING=Release \
-	-DCMAKE_INSTALL_PREFIX:PATH="${PREFIX}" \
 	-DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
 	-DENABLE_PYTHON${PY_VER%%.*}:BOOL=yes \
 	-DGDS_INCLUDE_DIR=${PREFIX}/include/gds \
