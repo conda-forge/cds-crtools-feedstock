@@ -1,0 +1,24 @@
+diff --git a/src/dtt/StripChart/StripChart.cc b/src/dtt/StripChart/StripChart.cc
+index b4a8b26..e1363fc 100644
+--- a/src/dtt/StripChart/StripChart.cc
++++ b/src/dtt/StripChart/StripChart.cc
+@@ -12,6 +12,7 @@
+ #include "StripChart.hh"
+ #include "StripPen.hh"
+ #include <time.h>
++#include <cmath>
+ 
+ //--------------------------------------  Constructor
+ StripChart::StripChart(int nPen, const char* Title) {
+diff --git a/src/dtt/gui/dttgui/TLGOptions.cc b/src/dtt/gui/dttgui/TLGOptions.cc
+index f495bf6..decc45d 100644
+--- a/src/dtt/gui/dttgui/TLGOptions.cc
++++ b/src/dtt/gui/dttgui/TLGOptions.cc
+@@ -12,6 +12,7 @@
+ #include <TGMsgBox.h>
+ #include <TGTableLayout.h>
+ #include <TVirtualX.h>
++#include <TMath.h>
+ 
+ static const int my_debug = 0 ;
+ 

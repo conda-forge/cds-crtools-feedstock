@@ -11,10 +11,12 @@ source:
   patches:
     # backport https://git.ligo.org/cds/software/dtt/-/merge_requests/39
     - 0001-fix-use-of-unittest.TestCase.assertEquals.patch
+    # fix some missing includes
+    - 0002-missing-include.patch
 
 build:
   error_overlinking: true
-  number: 9
+  number: 10
   skip: true  # [win]
 
 requirements:
@@ -439,7 +441,6 @@ outputs:
     build:
       ignore_run_exports:
         - numpy
-      skip: true  # [py == 312 and root_base == '6.30.4']
     requirements:
       build:
         - {{ compiler('c') }}
@@ -488,9 +489,11 @@ outputs:
     build:
       error_overlinking: true
       skip: true  # [osx]
-      skip: true  # [py == 312 and root_base == '6.30.4']
     requirements:
       build:
+        - {{ compiler('c') }}
+        - {{ compiler('cxx') }}
+        - {{ stdlib('c') }}
         - cmake
         - make  # [unix]
         - pkg-config
@@ -1016,7 +1019,6 @@ outputs:
     build:
       error_overlinking: true
       skip: true  # [osx]
-      skip: true  # [py == 312 and root_base == '6.30.4']
     requirements:
       host:
         - python
