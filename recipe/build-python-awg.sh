@@ -10,6 +10,9 @@ pushd ${_builddir}
 # build this directory
 BUILD_DIR="src/python/awg"
 
+# hack a symlink for rpcgen
+ln -s ${CPP} ${BUILD_PREFIX}/bin/cpp
+
 # configure
 cmake \
 	${CMAKE_ARGS} \
