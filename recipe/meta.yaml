@@ -9,8 +9,6 @@ source:
   url: https://git.ligo.org/cds/software/dtt/-/archive/{{ version }}/{{ version }}.tar.gz
   sha256: 33be4e69817b96525a60ab8571107bd6be0035250e122ff1bc94796631cd32fe
   patches:
-    # backport https://git.ligo.org/cds/software/dtt/-/merge_requests/39
-    - 0001-fix-use-of-unittest.TestCase.assertEquals.patch
     # fix some missing includes
     - 0002-missing-include.patch
 
