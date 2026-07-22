@@ -1,5 +1,7 @@
 #!/bin/bash
 
+git submodules update --init
+
 set -e
 
 mkdir -p _build
