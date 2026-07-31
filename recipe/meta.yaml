@@ -10,9 +10,6 @@ package:
 source:
   - url: https://git.ligo.org/cds/software/dtt/-/archive/{{ version }}/{{ version }}.tar.gz
     sha256: aa170eb64ebf84f0faebc00b46467e46c210250ea67e2efb7d19ebdb7e81ae8e
-    patches:
-      # fix some missing includes
-      - 0002-missing-include.patch
 
   - url: https://git.ligo.org/cds/software/cr_tools/nds-cache-rs/-/archive/{{ cachever }}/{{ cachever }}.tar.gz
     sha256: 6d86ebc1d86bc7ffafffee99243eda4f1d33171ee7bc8a8805e3f1cbfb47c0da
