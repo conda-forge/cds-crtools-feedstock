@@ -41,7 +41,7 @@ python:
 readline:
 - '8'
 root_base:
-- 6.36.8
+- 6.38.4
 target_platform:
 - osx-arm64
 zip_keys:
