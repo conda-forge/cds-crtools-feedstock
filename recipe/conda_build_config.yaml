@@ -1,0 +1,16 @@
+root_base:
+  - 6.36.10
+  - 6.38.4
+  - 6.38.4
+root_cxx_standard:
+  - 20
+  - 20
+  - 23
+
+zip_keys:
+  -
+    - root_base
+    - root_cxx_standard
+
+ignore_version_keys:
+  - root_base

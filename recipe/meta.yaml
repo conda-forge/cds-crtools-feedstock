@@ -1,22 +1,23 @@
 {% set name = "cds-crtools" %}
-{% set version = "4.1.4" %}
+{% set version = "4.2.1" %}
+
+{% set cachever = "dtt_1" %}
 
 package:
   name: {{ name|lower }}-split
   version: {{ version|replace('_', '.') }}
 
 source:
-  url: https://git.ligo.org/cds/software/dtt/-/archive/{{ version }}/{{ version }}.tar.gz
-  sha256: bb935ae3442d06f05aa706ad518bcce6f0b591ad8003fd5001c54bc307734c43
-  patches:
-    # backport https://git.ligo.org/cds/software/dtt/-/merge_requests/39
-    - 0001-fix-use-of-unittest.TestCase.assertEquals.patch
-    # fix some missing includes
-    - 0002-missing-include.patch
+  - url: https://git.ligo.org/cds/software/dtt/-/archive/{{ version }}/{{ version }}.tar.gz
+    sha256: aa170eb64ebf84f0faebc00b46467e46c210250ea67e2efb7d19ebdb7e81ae8e
 
+  - url: https://git.ligo.org/cds/software/cr_tools/nds-cache-rs/-/archive/{{ cachever }}/{{ cachever }}.tar.gz
+    sha256: 6d86ebc1d86bc7ffafffee99243eda4f1d33171ee7bc8a8805e3f1cbfb47c0da
+    folder: nds-cache-rs
+    
 build:
   error_overlinking: true
-  number: 11
+  number: 0
   skip: true  # [win]
 
 requirements:
@@ -27,7 +28,12 @@ requirements:
     - cmake
     - make  # [not win]
     - pkg-config  # [not win]
+    - {{ compiler('rust') }}
+    - libclang
+    - clang
   host:
+    - rapidjson
+    - zstd
     - cyrus-sasl
     - expat
     - fftw
@@ -50,10 +56,13 @@ outputs:
       skip: true  # [osx]
     requirements:
       build:
+        - {{ compiler('rust') }}
         - {{ compiler('c') }}
         - {{ stdlib("c") }}
         - make  # [unix]
       host:
+        - rapidjson
+        - zstd
         - gds-base
         - {{ pin_subpackage('libtestpoint', exact=True) }}
       run:
@@ -85,10 +94,13 @@ outputs:
       skip: true  # [osx]
     requirements:
       build:
+        - {{ compiler('rust') }}
         - {{ compiler('cxx') }}
         - {{ stdlib("c") }}
         - make  # [unix]
       host:
+        - rapidjson
+        - zstd
         - gds-base
         - {{ pin_subpackage('libfantom', exact=True) }}
         - {{ pin_subpackage('libtestpoint', exact=True) }}
@@ -129,10 +141,13 @@ outputs:
       skip: true  # [osx]
     requirements:
       build:
+        - {{ compiler('rust') }}
         - {{ compiler('cxx') }}
         - {{ stdlib("c") }}
         - make  # [unix]
       host:
+        - rapidjson
+        - zstd
         - expat
         - gds-base
         - gds-base-crtools
@@ -180,7 +195,10 @@ outputs:
         - {{ compiler('cxx') }}
         - {{ stdlib("c") }}
         - make  # [unix]
+        - {{ compiler('rust') }}
       host:
+        - rapidjson
+        - zstd
         - gds-base
         - gds-lsmp
         - readline
@@ -213,7 +231,10 @@ outputs:
         - {{ compiler('cxx') }}
         - {{ stdlib("c") }}
         - make  # [unix]
+        - {{ compiler('rust') }}
       host:
+        - rapidjson
+        - zstd
         - gds-base
       run:
         - gds-base
@@ -245,7 +266,10 @@ outputs:
         - {{ compiler('cxx') }}
         - {{ stdlib("c") }}
         - make  # [not win]
+        - {{ compiler('rust') }}
       host:
+        - rapidjson
+        - zstd
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - gds-base
         - {{ pin_subpackage('libfilterfile', exact=True) }}
@@ -283,7 +307,10 @@ outputs:
         - {{ compiler('c') }}
         - {{ stdlib("c") }}
         - make  # [unix]
+        - {{ compiler('rust') }}
       host:
+        - rapidjson
+        - zstd
         - gds-base
         - {{ pin_subpackage('libawg', exact=True) }}
         - {{ pin_subpackage('libtestpoint', exact=True) }}
@@ -318,7 +345,10 @@ outputs:
         - {{ compiler('cxx') }}
         - {{ stdlib("c") }}
         - make  # [unix]
+        - {{ compiler('rust') }}
       host:
+        - rapidjson
+        - zstd
         - gds-base
       run:
         - gds-base
@@ -350,7 +380,10 @@ outputs:
         - {{ compiler('cxx') }}
         - {{ stdlib("c") }}
         - make  # [unix]
+        - {{ compiler('rust') }}
       host:
+        - rapidjson
+        - zstd
         - gds-base
         - gds-base-crtools
         - {{ pin_subpackage('libdfm', exact=True) }}
@@ -403,6 +436,8 @@ outputs:
         - {{ stdlib("c") }}
         - make  # [unix]
       host:
+        - rapidjson
+        - zstd
         - gds-base
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - {{ pin_subpackage('libfilterfile', exact=True) }}
@@ -500,7 +535,10 @@ outputs:
         # extras for cross-compiling
         - cross-python_{{ target_platform }}  # [build_platform != target_platform]
         - python                              # [build_platform != target_platform]
+        - {{ compiler('rust') }}
       host:
+        - rapidjson
+        - zstd
         - nds2-client
         - python
         - root_base
@@ -540,7 +578,10 @@ outputs:
         - {{ compiler('c') }}
         - {{ stdlib("c") }}
         - make  # [unix]
+        - {{ compiler('rust') }}
       host:
+        - rapidjson
+        - zstd
         - {{ pin_subpackage('libdtt', exact=True) }}
       run:
         - {{ pin_subpackage('libdtt', exact=True) }}
@@ -560,7 +601,10 @@ outputs:
         - {{ compiler('cxx') }}
         - {{ stdlib("c") }}
         - make  # [unix]
+        - {{ compiler('rust') }}
       host:
+        - rapidjson
+        - zstd
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - gds-base
         - gds-base-crtools
@@ -596,7 +640,10 @@ outputs:
         - {{ compiler('cxx') }}
         - {{ stdlib("c") }}
         - make  # [unix]
+        - {{ compiler('rust') }}
       host:
+        - rapidjson
+        - zstd
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - gds-base
         - {{ pin_subpackage('libawg', exact=True) }}
@@ -636,7 +683,10 @@ outputs:
         - {{ compiler('c') }}
         - {{ stdlib("c") }}
         - make  # [unix]
+        - {{ compiler('rust') }}
       host:
+        - rapidjson
+        - zstd
         #- {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - gds-base
         - {{ pin_subpackage('libawg', exact=True) }}
@@ -678,7 +728,10 @@ outputs:
         - {{ compiler('cxx') }}
         - {{ stdlib("c") }}
         - make  # [unix]
+        - {{ compiler('rust') }}
       host:
+        - rapidjson
+        - zstd
         - {{ pin_subpackage('libdtt', exact=True) }}
       run:
         - {{ pin_subpackage('libdtt', exact=True) }}
@@ -709,7 +762,10 @@ outputs:
         - {{ compiler('cxx') }}
         - {{ stdlib("c") }}
         - make  # [unix]
+        - {{ compiler('rust') }}
       host:
+        - rapidjson
+        - zstd
         - {{ pin_subpackage('libdtt', exact=True) }}
       run:
         - {{ pin_subpackage('libdtt', exact=True) }}
@@ -740,7 +796,10 @@ outputs:
         - {{ compiler('cxx') }}
         - {{ stdlib("c") }}
         - make  # [unix]
+        - {{ compiler('rust') }}
       host:
+        - rapidjson
+        - zstd
         - gds-base
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - {{ pin_subpackage('libdfm', exact=True) }}
@@ -784,6 +843,7 @@ outputs:
         - {{ compiler('cxx') }}
         - {{ stdlib("c") }}
         - make  # [unix]
+        - {{ compiler('rust') }}
     files:
       - bin/InspiralRange
     test:
@@ -810,7 +870,10 @@ outputs:
         - {{ compiler('c') }}
         - {{ stdlib("c") }}
         - make  # [unix]
+        - {{ compiler('rust') }}
       host:
+        - rapidjson
+        - zstd
         - gds-base
         - {{ pin_subpackage('libawg', exact=True) }}
         - {{ pin_subpackage('libtestpoint', exact=True) }}
@@ -845,7 +908,10 @@ outputs:
         - {{ compiler('c') }}
         - {{ stdlib("c") }}
         - make  # [unix]
+        - {{ compiler('rust') }}
       host:
+        - rapidjson
+        - zstd
         - {{ pin_subpackage('libtestpoint', exact=True) }}
       run:
         - {{ pin_subpackage('libtestpoint', exact=True) }}
@@ -876,7 +942,10 @@ outputs:
         - {{ compiler('cxx') }}
         - {{ stdlib("c") }}
         - make  # [unix]
+        - {{ compiler('rust') }}
       host:
+        - rapidjson
+        - zstd
         - gds-base
         - {{ pin_subpackage('libdtt', exact=True) }}
       run:
@@ -909,10 +978,13 @@ outputs:
       skip: true  # [osx]
     requirements:
       build:
+        - {{ compiler('rust') }}
         - {{ compiler('c') }}
         - {{ stdlib("c") }}
         - make  # [unix]
       host:
+        - rapidjson
+        - zstd
         - {{ pin_subpackage('libfantom', exact=True) }}
       run:
         - {{ pin_subpackage('libfantom', exact=True) }}
@@ -980,10 +1052,13 @@ outputs:
       skip: true  # [osx]
     requirements:
       build:
+        - {{ compiler('rust') }}
         - {{ compiler('cxx') }}
         - {{ stdlib("c") }}
         - make  # [unix]
       host:
+        - rapidjson
+        - zstd
         - {{ pin_subpackage('crtools-gui-libraries', exact=True) }}
         - gds-base
         - {{ pin_subpackage('libdfm', exact=True) }}

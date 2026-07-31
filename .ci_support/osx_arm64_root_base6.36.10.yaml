@@ -37,13 +37,16 @@ python:
 - 3.11.* *_cpython
 - 3.12.* *_cpython
 - 3.13.* *_cp313
-- 3.14.* *_cp314
 readline:
 - '8'
 root_base:
-- 6.36.8
+- 6.36.10
+rust_compiler:
+- rust
 target_platform:
 - osx-arm64
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
+zstd:
+- '1.5'

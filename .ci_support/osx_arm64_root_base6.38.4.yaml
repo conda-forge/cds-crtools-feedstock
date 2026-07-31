@@ -25,7 +25,7 @@ fftw:
 liblzma_devel:
 - '5'
 macos_machine:
-- x86_64-apple-darwin13.4.0
+- arm64-apple-darwin20.0.0
 numpy:
 - '2'
 pin_run_as_build:
@@ -37,13 +37,16 @@ python:
 - 3.11.* *_cpython
 - 3.12.* *_cpython
 - 3.13.* *_cp313
-- 3.14.* *_cp314
 readline:
 - '8'
 root_base:
-- 6.36.8
+- 6.38.4
+rust_compiler:
+- rust
 target_platform:
-- osx-64
+- osx-arm64
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
+zstd:
+- '1.5'
