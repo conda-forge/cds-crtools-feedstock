@@ -20,7 +20,7 @@ mkdir -p _build
 cd _build
 
 # hack a symlink for rpcgen
-ln -s ${CPP} ${BUILD_PREFIX}/bin/cpp
+ln -sf ${CPP} ${BUILD_PREFIX}/bin/cpp
 
 export LIBRARY_PATH=${LIBRARY_PATH}:${PREFIX}/lib
 
