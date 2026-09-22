@@ -1,0 +1,62 @@
+From be53bf9216a1c53a8ad8dea0ecb3ddbd46427e2b Mon Sep 17 00:00:00 2001
+Subject: [PATCH] Guard TPostScript members that ROOT 6.40 removed
+
+TLGPostScript derives from TPostScript and initialises two of its protected
+members directly. ROOT 6.40 removed both:
+
+  -   Int_t   fCurrentColor;    ///< current Postscript color index
+  -   Bool_t  fRange;           ///< True when a range has been defined
+
+so the build stops at
+
+  TLGPrint.cc:262:7: error: 'fCurrentColor' was not declared in this scope
+
+Neither has a replacement -- ROOT now tracks this state itself -- so the
+assignments are skipped from 6.40 on and kept for older ROOT, where they are
+still needed.
+---
+ src/dtt/gui/dttgui/TLGPrint.cc | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/src/dtt/gui/dttgui/TLGPrint.cc b/src/dtt/gui/dttgui/TLGPrint.cc
+index 3023934..962d20f 100644
+--- a/src/dtt/gui/dttgui/TLGPrint.cc
++++ b/src/dtt/gui/dttgui/TLGPrint.cc
+@@ -5,6 +5,7 @@
+ #include "TLGEntry.hh"
+ #include "pipe_exec.hh"
+ #include <cstring>
++#include <RVersion.h>
+ #include <TStyle.h>
+ #include <TPad.h>
+ #include <TMath.h>
+@@ -259,7 +260,9 @@ namespace dttgui {
+       }
+    
+       fMarkerSizeCur = 0;
++#if ROOT_VERSION_CODE < ROOT_VERSION(6, 40, 0)
+       fCurrentColor  = 0;
++#endif
+       fRed         = -1;
+       fGreen       = -1;
+       fBlue        = -1;
+@@ -334,7 +337,9 @@ namespace dttgui {
+       }
+    
+       fClipStatus  = kFALSE;
++#if ROOT_VERSION_CODE < ROOT_VERSION(6, 40, 0)
+       fRange       = kFALSE;
++#endif
+       fType = 110 + fType % 10;
+    
+    //*-*- Set a default range
+@@ -379,7 +384,9 @@ namespace dttgui {
+          yrange = fXsize*ratio;
+          if (yrange > fYsize) { yrange = fYsize; xrange = yrange/ratio;}
+          fXsize = xrange; fYsize = yrange;
++#if ROOT_VERSION_CODE < ROOT_VERSION(6, 40, 0)
+          fRange       = kFALSE;
++#endif
+ 	 cerr << "  calling Range(" << fXsize << ", " << fYsize << ")" << endl ;
+          Range(fXsize, fYsize);
+       }
