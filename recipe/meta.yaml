@@ -1,5 +1,5 @@
 {% set name = "cds-crtools" %}
-{% set version = "4.2.1" %}
+{% set version = "4.2.2" %}
 
 {% set cachever = "dtt_1" %}
 
@@ -9,7 +9,7 @@ package:
 
 source:
   - url: https://git.ligo.org/cds/software/dtt/-/archive/{{ version }}/{{ version }}.tar.gz
-    sha256: aa170eb64ebf84f0faebc00b46467e46c210250ea67e2efb7d19ebdb7e81ae8e
+    sha256: 25e94444880bc7d9f742da8234477f5128a5b04ed6c3ba51ed098052bb525fd6
     patches:
       # ROOT 6.40 removed TPostScript::fCurrentColor and ::fRange, which
       # TLGPostScript assigns directly. Not yet sent upstream.
@@ -18,10 +18,10 @@ source:
   - url: https://git.ligo.org/cds/software/cr_tools/nds-cache-rs/-/archive/{{ cachever }}/{{ cachever }}.tar.gz
     sha256: 6d86ebc1d86bc7ffafffee99243eda4f1d33171ee7bc8a8805e3f1cbfb47c0da
     folder: nds-cache-rs
-    
+
 build:
   error_overlinking: true
-  number: 1
+  number: 0
   skip: true  # [win]
 
 requirements:
