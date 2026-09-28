@@ -1,5 +1,5 @@
 {% set name = "cds-crtools" %}
-{% set version = "4.2.2" %}
+{% set version = "4.2.3" %}
 
 {% set cachever = "dtt_2" %}
 
@@ -9,7 +9,7 @@ package:
 
 source:
   - url: https://git.ligo.org/cds/software/dtt/-/archive/{{ version }}/{{ version }}.tar.gz
-    sha256: 25e94444880bc7d9f742da8234477f5128a5b04ed6c3ba51ed098052bb525fd6  
+    sha256: 41ceb56d0573297ef95f6a66f43f477765cf63c1c76e403ef84da68aef050329
 
   - url: https://git.ligo.org/cds/software/cr_tools/nds-cache-rs/-/archive/{{ cachever }}/{{ cachever }}.tar.gz
     sha256: 07e691cb5e5aefad65ca03064701515a1b70875d10d30736127894b59220cbd7 
@@ -17,7 +17,7 @@ source:
     
 build:
   error_overlinking: true
-  number: 1
+  number: 0
   skip: true  # [win]
 
 requirements:
